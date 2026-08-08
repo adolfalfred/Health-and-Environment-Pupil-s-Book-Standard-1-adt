@@ -155,6 +155,82 @@ textarea {
   text-align: center;
 }
 
+.source-layout.has-responses {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  aspect-ratio: auto !important;
+  gap: clamp(.8rem, 2vw, 1.1rem);
+  padding: clamp(.9rem, 2.5vw, 1.5rem);
+  overflow: visible;
+  container-type: normal;
+}
+
+.source-layout.has-responses .source-positioned,
+.source-layout.has-responses .source-figure {
+  position: static;
+  left: auto;
+  top: auto;
+  width: auto;
+  height: auto;
+}
+
+.source-layout.has-responses .source-h2,
+.source-layout.has-responses .source-h3,
+.source-layout.has-responses .source-text {
+  grid-column: 1 / -1;
+  font-size: clamp(1.25rem, 2.7vw, 1.55rem);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.source-layout.has-responses .source-h2 br,
+.source-layout.has-responses .source-h3 br,
+.source-layout.has-responses .source-text br {
+  display: none;
+}
+
+.source-layout.has-responses .source-h2 {
+  font-size: clamp(1.85rem, 4.5vw, 2.6rem);
+  text-align: center;
+}
+
+.source-layout.has-responses .source-h3 {
+  font-size: clamp(1.45rem, 3.5vw, 2rem);
+}
+
+.source-layout.has-responses .source-fragment {
+  grid-column: auto;
+  min-width: 0;
+}
+
+.source-layout.has-responses .source-row-start {
+  grid-column-start: 1;
+}
+
+.source-layout.has-responses .source-figure {
+  width: 100%;
+  min-width: 0;
+  min-height: 8rem;
+}
+
+.source-layout.has-responses .source-decoration {
+  display: none;
+}
+
+.source-layout.has-responses .printed-page-number {
+  position: static;
+  grid-column: 1 / -1;
+  width: auto;
+  margin-top: .75rem;
+  font-size: 1rem;
+}
+
+.source-layout.has-responses .response-group {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: .25rem 0 1rem;
+}
+
 .response-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
