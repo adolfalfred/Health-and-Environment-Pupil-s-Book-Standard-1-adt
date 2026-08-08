@@ -1,0 +1,49 @@
+{
+  "title": "Health and Environment Pupil's Book Standard One",
+  "bundleVersion": "1",
+  "languages": {
+    "available": ["en-GB"],
+    "default": "en-GB"
+  },
+  "features": {
+    "signLanguage": false,
+    "easyRead": true,
+    "glossary": true,
+    "eli5": false,
+    "readAloud": true,
+    "autoplay": false,
+    "showTutorial": true,
+    "showNavigationControls": true,
+    "describeImages": true,
+    "notepad": false,
+    "state": true,
+    "characterDisplay": false,
+    "highlight": false,
+    "activities": true
+  },
+  "braille": {
+    "enabled": true,
+    "implementationPhase": "native-baseline-and-educator-review-manifest",
+    "nativeTextInput": true,
+    "drawingResponses": true,
+    "primaryResponseMethod": "drawing-or-native-labelled-text",
+    "sixKeyInput": false,
+    "translationTable": null,
+    "translationStatus": "awaiting-qualified-tanzanian-braille-educator-review",
+    "activityManifest": "content/accessibility/braille-activity-manifest.json",
+    "sixKeyPilotStatus": "awaiting-specialist-approval"
+  },
+  "analytics": {
+    "enabled": false,
+    "siteId": 0,
+    "trackerUrl": "https://unisitetracker.unicef.io/matomo.php",
+    "srcUrl": "https://unisitetracker.unicef.io/matomo.js"
+  },
+  "defaultSettings": {
+    "dockLayout": {"width": "full", "position": "bottom", "align": "spread"},
+    "theme": "dark",
+    "iconSize": "md",
+    "reduceMotion": false
+  },
+  "lockedSettings": ["dockLayout", "theme", "iconSize", "reduceMotion"]
+}

@@ -1,0 +1,597 @@
+[
+  {
+    "section_id": "cover_sec001",
+    "href": "index.html",
+    "title": "Front cover",
+    "chapter_id": "toc_cover",
+    "level": 1
+  },
+  {
+    "section_id": "pg001_sec001",
+    "href": "pg001_sec001.html",
+    "title": "Title page",
+    "chapter_id": "toc_pg001_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg002_sec001",
+    "href": "pg002_sec001.html",
+    "title": "Copyright and publication details",
+    "chapter_id": "toc_pg002_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg003_sec001",
+    "href": "pg003_sec001.html",
+    "title": "Table of Contents",
+    "chapter_id": "toc_pg003_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg004_sec001",
+    "href": "pg004_sec001.html",
+    "title": "Acknowledgements",
+    "chapter_id": "toc_pg004_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg005_sec001",
+    "href": "pg005_sec001.html",
+    "title": "Acknowledgements continued",
+    "chapter_id": "toc_pg005_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg006_sec001",
+    "href": "pg006_sec001.html",
+    "title": "Introduction",
+    "chapter_id": "toc_pg006_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg007_sec001",
+    "href": "pg007_sec001.html",
+    "title": "Chapter One: Body cleanliness - Cleaning the mouth",
+    "chapter_id": "toc_pg007_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg008_sec001",
+    "href": "pg008_sec001.html",
+    "title": "Steps for cleaning the mouth",
+    "chapter_id": "toc_pg008_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg009_sec001",
+    "href": "pg009_sec001.html",
+    "title": "Cleaning the mouth continued",
+    "chapter_id": "toc_pg009_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg010_sec001",
+    "href": "pg010_sec001.html",
+    "title": "Exercise 1: Cleaning the mouth",
+    "chapter_id": "toc_pg010_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg010_sec002",
+    "href": "pg010_sec002.html",
+    "title": "Washing the face: Items",
+    "chapter_id": "toc_pg010_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg011_sec001",
+    "href": "pg011_sec001.html",
+    "title": "Washing the face: Questions and item uses",
+    "chapter_id": "toc_pg011_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg012_sec001",
+    "href": "pg012_sec001.html",
+    "title": "Washing-face item uses continued",
+    "chapter_id": "toc_pg012_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg012_sec002",
+    "href": "pg012_sec002.html",
+    "title": "Steps for washing the face",
+    "chapter_id": "toc_pg012_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg013_sec001",
+    "href": "pg013_sec001.html",
+    "title": "Steps for washing the face continued",
+    "chapter_id": "toc_pg013_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg014_sec001",
+    "href": "pg014_sec001.html",
+    "title": "Washing-face questions and Exercise 2",
+    "chapter_id": "toc_pg014_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg015_sec001",
+    "href": "pg015_sec001.html",
+    "title": "Exercise 2 continued",
+    "chapter_id": "toc_pg015_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg015_sec002",
+    "href": "pg015_sec002.html",
+    "title": "Cleaning the ears: Items",
+    "chapter_id": "toc_pg015_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg016_sec001",
+    "href": "pg016_sec001.html",
+    "title": "Steps for cleaning the ears",
+    "chapter_id": "toc_pg016_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg017_sec001",
+    "href": "pg017_sec001.html",
+    "title": "Cleaning the ears continued and Exercise 3",
+    "chapter_id": "toc_pg017_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg017_sec002",
+    "href": "pg017_sec002.html",
+    "title": "Washing the hair: Introduction",
+    "chapter_id": "toc_pg017_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg018_sec001",
+    "href": "pg018_sec001.html",
+    "title": "Items for washing the hair",
+    "chapter_id": "toc_pg018_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg019_sec001",
+    "href": "pg019_sec001.html",
+    "title": "Steps for washing the hair",
+    "chapter_id": "toc_pg019_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg020_sec001",
+    "href": "pg020_sec001.html",
+    "title": "Washing-hair questions and song",
+    "chapter_id": "toc_pg020_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg021_sec001",
+    "href": "pg021_sec001.html",
+    "title": "Washing-hair Activity 5 and Exercise 4",
+    "chapter_id": "toc_pg021_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg022_sec001",
+    "href": "pg022_sec001.html",
+    "title": "Exercise 4 continued",
+    "chapter_id": "toc_pg022_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg022_sec002",
+    "href": "pg022_sec002.html",
+    "title": "Washing hands and cutting fingernails: Items",
+    "chapter_id": "toc_pg022_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg023_sec001",
+    "href": "pg023_sec001.html",
+    "title": "Hand-and-fingernail items and Activity 6",
+    "chapter_id": "toc_pg023_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg024_sec001",
+    "href": "pg024_sec001.html",
+    "title": "Activity 6 continued",
+    "chapter_id": "toc_pg024_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg025_sec001",
+    "href": "pg025_sec001.html",
+    "title": "Cutting and washing fingernails",
+    "chapter_id": "toc_pg025_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg026_sec001",
+    "href": "pg026_sec001.html",
+    "title": "Fingernail questions, Activity 7, and Exercise 5",
+    "chapter_id": "toc_pg026_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg027_sec001",
+    "href": "pg027_sec001.html",
+    "title": "Steps for washing hands",
+    "chapter_id": "toc_pg027_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg028_sec001",
+    "href": "pg028_sec001.html",
+    "title": "Washing-hands questions, Activity 8, and Exercise 6",
+    "chapter_id": "toc_pg028_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg029_sec001",
+    "href": "pg029_sec001.html",
+    "title": "Exercise 6 continued",
+    "chapter_id": "toc_pg029_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg029_sec002",
+    "href": "pg029_sec002.html",
+    "title": "Washing feet and cutting toenails: Introduction",
+    "chapter_id": "toc_pg029_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg030_sec001",
+    "href": "pg030_sec001.html",
+    "title": "Items for washing feet and cutting toenails",
+    "chapter_id": "toc_pg030_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg031_sec001",
+    "href": "pg031_sec001.html",
+    "title": "Cutting and washing toenails",
+    "chapter_id": "toc_pg031_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg032_sec001",
+    "href": "pg032_sec001.html",
+    "title": "Toenail questions, Activity 9, and Exercise 7",
+    "chapter_id": "toc_pg032_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg033_sec001",
+    "href": "pg033_sec001.html",
+    "title": "Exercise 7 continued",
+    "chapter_id": "toc_pg033_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg033_sec002",
+    "href": "pg033_sec002.html",
+    "title": "Steps for washing feet",
+    "chapter_id": "toc_pg033_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg034_sec001",
+    "href": "pg034_sec001.html",
+    "title": "Washing-feet questions, Activity 10, and Exercise 8",
+    "chapter_id": "toc_pg034_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg035_sec001",
+    "href": "pg035_sec001.html",
+    "title": "Items for bathing",
+    "chapter_id": "toc_pg035_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg036_sec001",
+    "href": "pg036_sec001.html",
+    "title": "Steps for bathing",
+    "chapter_id": "toc_pg036_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg037_sec001",
+    "href": "pg037_sec001.html",
+    "title": "Bathing questions and body-cleanliness song",
+    "chapter_id": "toc_pg037_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg038_sec001",
+    "href": "pg038_sec001.html",
+    "title": "Bathing questions and Exercise 9",
+    "chapter_id": "toc_pg038_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg039_sec001",
+    "href": "pg039_sec001.html",
+    "title": "Exercise 9 continued",
+    "chapter_id": "toc_pg039_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg040_sec001",
+    "href": "pg040_sec001.html",
+    "title": "Chapter Two: Taking care of clothes - Kinds of clothes",
+    "chapter_id": "toc_pg040_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg041_sec001",
+    "href": "pg041_sec001.html",
+    "title": "Kinds of clothes continued",
+    "chapter_id": "toc_pg041_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg042_sec001",
+    "href": "pg042_sec001.html",
+    "title": "Clothes questions and Exercise 1",
+    "chapter_id": "toc_pg042_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg042_sec002",
+    "href": "pg042_sec002.html",
+    "title": "Items for washing clothes",
+    "chapter_id": "toc_pg042_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg043_sec001",
+    "href": "pg043_sec001.html",
+    "title": "Items for washing clothes",
+    "chapter_id": "toc_pg043_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg044_sec001",
+    "href": "pg044_sec001.html",
+    "title": "Steps for washing clothes",
+    "chapter_id": "toc_pg044_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg045_sec001",
+    "href": "pg045_sec001.html",
+    "title": "Steps for washing clothes continued",
+    "chapter_id": "toc_pg045_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg046_sec001",
+    "href": "pg046_sec001.html",
+    "title": "Steps for washing clothes continued",
+    "chapter_id": "toc_pg046_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg047_sec001",
+    "href": "pg047_sec001.html",
+    "title": "Washing-clothes question and Activity 1",
+    "chapter_id": "toc_pg047_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg048_sec001",
+    "href": "pg048_sec001.html",
+    "title": "Exercise 2: Washing-clothes sequence",
+    "chapter_id": "toc_pg048_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg049_sec001",
+    "href": "pg049_sec001.html",
+    "title": "Exercise 2 continued",
+    "chapter_id": "toc_pg049_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg050_sec001",
+    "href": "pg050_sec001.html",
+    "title": "Clothes storage materials",
+    "chapter_id": "toc_pg050_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg051_sec001",
+    "href": "pg051_sec001.html",
+    "title": "Folding and storing clothes",
+    "chapter_id": "toc_pg051_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg052_sec001",
+    "href": "pg052_sec001.html",
+    "title": "Folding and storing clothes continued",
+    "chapter_id": "toc_pg052_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg053_sec001",
+    "href": "pg053_sec001.html",
+    "title": "Clothes-storage question, Activity 2, and Exercise 3",
+    "chapter_id": "toc_pg053_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg054_sec001",
+    "href": "pg054_sec001.html",
+    "title": "Chapter Three: Dangerous environments and objects - Dangerous objects",
+    "chapter_id": "toc_pg054_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg055_sec001",
+    "href": "pg055_sec001.html",
+    "title": "Dangerous objects continued and song",
+    "chapter_id": "toc_pg055_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg056_sec001",
+    "href": "pg056_sec001.html",
+    "title": "Dangerous-objects questions and Exercise 1",
+    "chapter_id": "toc_pg056_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg057_sec001",
+    "href": "pg057_sec001.html",
+    "title": "Dangerous insects",
+    "chapter_id": "toc_pg057_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg058_sec001",
+    "href": "pg058_sec001.html",
+    "title": "Dangerous-insects story and Activity 1",
+    "chapter_id": "toc_pg058_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg059_sec001",
+    "href": "pg059_sec001.html",
+    "title": "Exercise 2: Match dangerous insects",
+    "chapter_id": "toc_pg059_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg060_sec001",
+    "href": "pg060_sec001.html",
+    "title": "Dangerous animals",
+    "chapter_id": "toc_pg060_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg061_sec001",
+    "href": "pg061_sec001.html",
+    "title": "Dangerous-animals questions and Exercise 3",
+    "chapter_id": "toc_pg061_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg062_sec001",
+    "href": "pg062_sec001.html",
+    "title": "Exercise 3 continued",
+    "chapter_id": "toc_pg062_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg062_sec002",
+    "href": "pg062_sec002.html",
+    "title": "Dangerous environments",
+    "chapter_id": "toc_pg062_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg063_sec001",
+    "href": "pg063_sec001.html",
+    "title": "Dangerous-environments questions",
+    "chapter_id": "toc_pg063_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg063_sec002",
+    "href": "pg063_sec002.html",
+    "title": "Avoiding dangerous objects",
+    "chapter_id": "toc_pg063_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg064_sec001",
+    "href": "pg064_sec001.html",
+    "title": "Avoiding dangerous objects continued",
+    "chapter_id": "toc_pg064_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg065_sec001",
+    "href": "pg065_sec001.html",
+    "title": "Chapter Four: Safety signs - Road safety signs",
+    "chapter_id": "toc_pg065_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg066_sec001",
+    "href": "pg066_sec001.html",
+    "title": "Road safety signs continued",
+    "chapter_id": "toc_pg066_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg067_sec001",
+    "href": "pg067_sec001.html",
+    "title": "Exercise 1: Road safety signs",
+    "chapter_id": "toc_pg067_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg068_sec001",
+    "href": "pg068_sec001.html",
+    "title": "Exercise 1 continued",
+    "chapter_id": "toc_pg068_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg068_sec002",
+    "href": "pg068_sec002.html",
+    "title": "Other safety signs in the environment",
+    "chapter_id": "toc_pg068_sec002",
+    "level": 2
+  },
+  {
+    "section_id": "pg069_sec001",
+    "href": "pg069_sec001.html",
+    "title": "Other safety signs continued",
+    "chapter_id": "toc_pg069_sec001",
+    "level": 3
+  },
+  {
+    "section_id": "pg070_sec001",
+    "href": "pg070_sec001.html",
+    "title": "Safety-signs Activity 2 and Exercise 2",
+    "chapter_id": "toc_pg070_sec001",
+    "level": 2
+  },
+  {
+    "section_id": "pg071_sec001",
+    "href": "pg071_sec001.html",
+    "title": "Vocabulary",
+    "chapter_id": "toc_pg071_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "pg072_sec001",
+    "href": "pg072_sec001.html",
+    "title": "Bibliography",
+    "chapter_id": "toc_pg072_sec001",
+    "level": 1
+  },
+  {
+    "section_id": "back_cover_sec001",
+    "href": "back_cover.html",
+    "title": "Back cover",
+    "chapter_id": "toc_back_cover",
+    "level": 1
+  }
+]
