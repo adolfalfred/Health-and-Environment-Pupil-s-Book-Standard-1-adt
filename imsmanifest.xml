@@ -256,6 +256,12 @@
       <file href="content/i18n/en-GB/audio/pg015_sec001_response_01_02_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg015_sec001_response_01_03_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg015_sec001_response_01_04_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg015_sec001_response_group_01_choice_A_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg015_sec001_response_group_01_choice_B_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg015_sec001_response_group_01_choice_C_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg015_sec001_response_group_01_choice_D_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg015_sec001_response_group_01_choices_title.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg015_sec001_response_group_01_prompt.mp3"/>
       <file href="content/i18n/en-GB/audio/pg015_sec002_heading.mp3"/>
       <file href="content/i18n/en-GB/audio/pg015_sec002_n0001.mp3"/>
       <file href="content/i18n/en-GB/audio/pg015_sec002_n0002.mp3"/>
@@ -498,6 +504,7 @@
       <file href="content/i18n/en-GB/audio/pg032_sec001_n0016.mp3"/>
       <file href="content/i18n/en-GB/audio/pg032_sec001_n0018.mp3"/>
       <file href="content/i18n/en-GB/audio/pg032_sec001_response_01_01_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_im002.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_im004.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_im005.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_im006.mp3"/>
@@ -505,6 +512,13 @@
       <file href="content/i18n/en-GB/audio/pg033_im008.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_im009.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_sec001_n0005.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_sec001_response_01_01_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_sec001_response_01_02_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_sec001_response_01_03_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_sec001_response_group_01_choice_A_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_sec001_response_group_01_choice_B_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_sec001_response_group_01_choice_C_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg033_sec001_response_group_01_prompt.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_sec002_heading.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_sec002_n0001.mp3"/>
       <file href="content/i18n/en-GB/audio/pg033_sec002_n0002.mp3"/>
@@ -523,7 +537,12 @@
       <file href="content/i18n/en-GB/audio/pg034_sec001_n0020.mp3"/>
       <file href="content/i18n/en-GB/audio/pg034_sec001_response_01_01_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg034_sec001_response_02_01_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg034_sec001_response_03_02_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg034_sec001_response_03_03_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg034_sec001_response_03_04_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg034_sec001_response_03_05_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg034_sec001_response_group_03_choice_E_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg034_sec001_response_group_03_prompt.mp3"/>
       <file href="content/i18n/en-GB/audio/pg035_im006.mp3"/>
       <file href="content/i18n/en-GB/audio/pg035_im007.mp3"/>
       <file href="content/i18n/en-GB/audio/pg035_im009.mp3"/>
@@ -858,6 +877,7 @@
       <file href="content/i18n/en-GB/audio/pg059_sec001_response_01_03_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg059_sec001_response_01_04_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg059_sec001_response_01_05_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg059_sec001_response_group_01_prompt.mp3"/>
       <file href="content/i18n/en-GB/audio/pg060_im002.mp3"/>
       <file href="content/i18n/en-GB/audio/pg060_im003.mp3"/>
       <file href="content/i18n/en-GB/audio/pg060_im004.mp3"/>
@@ -1014,6 +1034,7 @@
       <file href="content/i18n/en-GB/audio/pg068_sec001_response_01_07_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg068_sec001_response_01_08_label.mp3"/>
       <file href="content/i18n/en-GB/audio/pg068_sec001_response_02_01_label.mp3"/>
+      <file href="content/i18n/en-GB/audio/pg068_sec001_response_group_01_prompt.mp3"/>
       <file href="content/i18n/en-GB/audio/pg068_sec002_heading.mp3"/>
       <file href="content/i18n/en-GB/audio/pg068_sec002_n0001.mp3"/>
       <file href="content/i18n/en-GB/audio/pg068_sec002_n0002.mp3"/>

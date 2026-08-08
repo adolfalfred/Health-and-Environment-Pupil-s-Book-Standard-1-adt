@@ -2,6 +2,64 @@
   "use strict";
 
   const PREFIX = "adt-health-environment-standard-1:";
+  const STRUCTURAL_LINES = {
+    pg002_sec001_n0002: ["First edition 2018", "Second Edition 2023"],
+    pg002_sec001_n0004: [
+      "Tanzania Institute of Education",
+      "Mikocheni Area",
+      "132 Ali Hassan Mwinyi Road",
+      "P.O. Box 35094",
+      "14112 Dar es Salaam",
+    ],
+  };
+
+  const appendNumberAwareText = (parent, value) => {
+    value.split(/(\d+)/).forEach((part) => {
+      if (!part) return;
+      if (/^\d+$/.test(part)) {
+        const number = document.createElement("span");
+        number.className = "source-number";
+        number.textContent = part;
+        parent.append(number);
+      } else {
+        parent.append(document.createTextNode(part));
+      }
+    });
+  };
+
+  const formatSourceNode = (node) => {
+    const structural = STRUCTURAL_LINES[node.dataset.id];
+    if (structural) {
+      if (node.querySelectorAll(":scope > .source-line").length === structural.length) return;
+      if (node.children.length) return;
+      const fragment = document.createDocumentFragment();
+      structural.forEach((line, index) => {
+        if (index) fragment.append(document.createTextNode("\n"));
+        const lineElement = document.createElement("span");
+        lineElement.className = "source-line";
+        appendNumberAwareText(lineElement, line);
+        fragment.append(lineElement);
+      });
+      node.replaceChildren(fragment);
+      return;
+    }
+    if (!/\d/.test(node.textContent) || node.children.length) return;
+    const value = node.textContent;
+    const fragment = document.createDocumentFragment();
+    appendNumberAwareText(fragment, value);
+    node.replaceChildren(fragment);
+  };
+
+  const initialiseSourceFormatting = () => {
+    const content = document.getElementById("content");
+    if (!content) return;
+    const formatAll = () => content.querySelectorAll(
+      ".source-h2[data-id], .source-h3[data-id], .source-text[data-id]"
+    ).forEach(formatSourceNode);
+    requestAnimationFrame(formatAll);
+    const observer = new MutationObserver(() => requestAnimationFrame(formatAll));
+    observer.observe(content, { childList: true, subtree: true });
+  };
 
   const safeGet = (key) => {
     try {
@@ -148,6 +206,7 @@
       field.addEventListener("change", () => safeSet(key, field.value));
     });
     document.querySelectorAll("canvas[data-drawing-response]").forEach(initialiseDrawing);
+    initialiseSourceFormatting();
   };
 
   if (document.readyState === "loading") {

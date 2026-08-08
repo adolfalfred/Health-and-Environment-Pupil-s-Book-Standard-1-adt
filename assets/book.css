@@ -14,16 +14,14 @@
 }
 
 html {
-  background: #dcebe6;
+  background: #fff;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   color: var(--book-ink);
-  background:
-    radial-gradient(circle at 10% 10%, rgb(255 255 255 / 68%) 0 7rem, transparent 7.1rem),
-    linear-gradient(150deg, #dff5ec, #cde2db);
+  background: #fff;
 }
 
 button,
@@ -124,6 +122,23 @@ textarea {
 .source-layout .source-h3 {
   color: #0a7d87;
   font-weight: 700;
+}
+
+.source-number,
+.source-layout .printed-page-number {
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.source-structured-lines {
+  display: grid;
+  gap: .2rem;
+}
+
+.source-structured-lines .source-line {
+  display: block;
 }
 
 .source-layout .source-figure {
@@ -249,8 +264,8 @@ textarea {
   width: min(100%, 64rem);
   margin: 1.2rem auto 2rem;
   padding: clamp(1rem, 2.5vw, 1.5rem);
-  background: linear-gradient(145deg, #f4fffb, var(--book-mint));
-  border: 2px solid var(--book-line);
+  background: #f5f7f9;
+  border: 2px solid #a9bac6;
   border-radius: 1.25rem;
 }
 
@@ -331,6 +346,76 @@ textarea {
   background: #fff;
   border: 1px solid #d8e5e0;
   border-radius: .85rem;
+}
+
+.matching-group > legend,
+.matching-choice-bank {
+  grid-column: 1 / -1;
+}
+
+.matching-choice-bank {
+  padding: 1rem;
+  background: #fff;
+  border: 2px solid #7fa7bd;
+  border-radius: 1rem;
+}
+
+.matching-choice-title {
+  margin: 0 0 .8rem;
+  color: #173e57;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.matching-choice-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: .8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.matching-choice-card {
+  display: flex;
+  min-width: 0;
+  padding: .75rem;
+  flex-direction: column;
+  gap: .55rem;
+  background: #f7fafc;
+  border: 1px solid #b8c8d3;
+  border-radius: .75rem;
+}
+
+.matching-choice-figure {
+  display: flex;
+  min-height: 9rem;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: .6rem;
+}
+
+.matching-choice-figure img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: contain;
+}
+
+.matching-choice-label {
+  margin: 0;
+  color: #173e57;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.matching-group .response-card {
+  border-color: #9eb6c5;
 }
 
 .inclusive-instruction {
