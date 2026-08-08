@@ -467,33 +467,128 @@ textarea {
   font-size: .98rem;
 }
 
+.visible-toc {
+  width: min(100%, 64rem);
+  margin-inline: auto;
+  padding-block: clamp(.5rem, 2vw, 1.5rem) 3rem;
+}
+
+.toc-heading {
+  width: fit-content;
+  margin: 0 auto .7rem;
+  padding: .55rem clamp(1.4rem, 5vw, 3.5rem);
+  color: #fff;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(2rem, 6vw, 3.35rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  background: linear-gradient(180deg, #f94ba8, #eb008c 62%, #8e005d);
+  border-radius: 1.2rem 1.2rem .7rem .7rem;
+  box-shadow: 0 .35rem 0 #690047;
+}
+
+.toc-instruction {
+  margin: 0 0 clamp(1.25rem, 3vw, 2rem);
+  color: #4b5563;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  text-align: center;
+}
+
 .visible-toc ol {
   display: grid;
-  gap: .75rem;
-  max-width: 58rem;
-  margin: 0 auto;
+  gap: .8rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .visible-toc a {
-  display: flex;
-  min-height: 3.4rem;
-  padding: .7rem 1rem;
-  color: #114d3b;
-  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
-  font-weight: 700;
+  display: grid;
+  grid-template-columns: minmax(10rem, auto) minmax(2rem, 1fr) auto auto;
+  min-height: 4.25rem;
+  padding: .7rem .8rem .7rem 1rem;
+  color: #25202a;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.2rem, 2.8vw, 1.6rem);
   text-decoration: none;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  background: #f2fbf7;
-  border: 2px solid #a7c8bd;
-  border-radius: .8rem;
+  gap: .8rem;
+  background: #fff;
+  border: 2px solid #ead5e2;
+  border-radius: 1rem;
+  box-shadow: 0 .25rem .75rem rgb(87 36 68 / 9%);
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.toc-copy {
+  display: grid;
+  gap: .18rem;
+  min-width: 0;
+}
+
+.toc-chapter {
+  width: fit-content;
+  padding: .18rem .65rem;
+  color: #fff;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: .72em;
+  font-weight: 700;
+  line-height: 1.25;
+  background: #d6007f;
+  border-radius: 999px;
+}
+
+.toc-name {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.toc-leader {
+  align-self: end;
+  margin-bottom: .55rem;
+  border-bottom: 3px dotted #8a7a84;
+}
+
+.toc-page {
+  min-width: 2.8rem;
+  color: #71004b;
+  font-family: Arial, sans-serif;
+  font-size: 1.05em;
+  font-weight: 700;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: right;
+}
+
+.toc-arrow {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  place-items: center;
+  background: #71004b;
+  border-radius: 50%;
 }
 
 .visible-toc a:hover {
-  background: #def6ec;
+  border-color: #d6007f;
+  box-shadow: 0 .45rem 1rem rgb(87 36 68 / 16%);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 42rem) {
+  .visible-toc a {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    padding-left: .85rem;
+  }
+
+  .toc-leader {
+    display: none;
+  }
 }
 
 .cover-section {
