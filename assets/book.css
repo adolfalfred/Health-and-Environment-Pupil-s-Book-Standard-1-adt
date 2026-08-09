@@ -459,6 +459,17 @@ span[data-word-index].bg-yellow-300 {
   border-left: 1px solid #d7d2cc;
 }
 
+.dynamic-content-page .source-layout .source-story-flow {
+  grid-column: 1 / -1;
+  margin-top: 0;
+  padding: clamp(.9rem, 2vw, 1.35rem);
+  line-height: 1.65;
+}
+
+.source-story-sentence {
+  display: inline;
+}
+
 .dynamic-content-page .source-layout .source-song-copy {
   padding: .55rem .8rem;
   background: #f3f0ff;
