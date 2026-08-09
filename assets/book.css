@@ -624,6 +624,92 @@ textarea {
   border-radius: .35rem;
 }
 
+.dynamic-content-page section[data-section-id]:has(> .page-activity-dock) {
+  padding-bottom: 7rem;
+}
+
+.page-activity-dock {
+  position: fixed;
+  z-index: 38;
+  right: .65rem;
+  bottom: 4.45rem;
+  left: .65rem;
+  display: grid;
+  grid-template-columns: auto auto minmax(14rem, 1fr);
+  width: min(64rem, calc(100% - 1.3rem));
+  margin-inline: auto;
+  padding: .65rem;
+  align-items: center;
+  gap: .6rem;
+  background: rgba(255, 255, 255, .98);
+  border: 2px solid #176b55;
+  border-radius: .85rem;
+  box-shadow: 0 .35rem 1.4rem rgba(19, 61, 50, .22);
+}
+
+.page-activity-submit,
+.page-activity-reset {
+  min-height: 3rem;
+  padding: .6rem 1.15rem;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+  border-radius: .65rem;
+  cursor: pointer;
+}
+
+.page-activity-submit {
+  color: #fff;
+  background: #176b55;
+  border: 2px solid #0f5542;
+}
+
+.page-activity-reset {
+  color: #173d33;
+  background: #fff;
+  border: 2px solid #638f81;
+}
+
+.page-activity-feedback {
+  min-width: 0;
+  color: #173d33;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.page-activity-dock[data-page-result="correct"] {
+  border-color: #1f8a5b;
+  background: #eaf8f0;
+}
+
+.page-activity-dock[data-page-result="incorrect"],
+.page-activity-dock[data-page-result="incomplete"] {
+  border-color: #bf3b2b;
+  background: #fff1ed;
+}
+
+@media (max-width: 42rem) {
+  .dynamic-content-page section[data-section-id]:has(> .page-activity-dock) {
+    padding-bottom: 10rem;
+  }
+
+  .page-activity-dock {
+    bottom: 4.2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-activity-submit,
+  .page-activity-reset {
+    width: 100%;
+  }
+
+  .page-activity-feedback {
+    grid-column: 1 / -1;
+  }
+}
+
 .assessment-correct .activity-feedback {
   color: #0b5139;
   background: #eaf8f0;
@@ -663,6 +749,9 @@ textarea {
 .activity-submit:focus-visible,
 .activity-reset:focus-visible,
 .activity-feedback:focus-visible,
+.page-activity-submit:focus-visible,
+.page-activity-reset:focus-visible,
+.page-activity-feedback:focus-visible,
 .clear-drawing:focus-visible,
 .visible-toc a:focus-visible {
   outline: .22rem solid #0b65c2;

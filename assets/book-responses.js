@@ -219,6 +219,64 @@
     if (safeGet(`${group.id}:assessment`)) assessGroup(group, { restore: true });
   };
 
+  const initialisePageActivityDock = (dock) => {
+    if (dock.dataset.activityInitialised === "true") return;
+    dock.dataset.activityInitialised = "true";
+    const section = dock.closest("section[data-section-id]");
+    const groups = Array.from(section?.querySelectorAll("[data-response-group]") || []);
+    const submit = dock.querySelector("[data-submit-page]");
+    const reset = dock.querySelector("[data-reset-page]");
+    const feedback = dock.querySelector(".page-activity-feedback");
+
+    submit?.addEventListener("click", () => {
+      groups.forEach((group) => assessGroup(group));
+      const fields = groups.flatMap(responseFields);
+      const unanswered = fields.reduce((count, field) => count + Number(!field.value.trim()), 0);
+      const incorrect = groups.some((group) => (
+        group.dataset.assessmentMode === "objective"
+        && group.classList.contains("assessment-incorrect")
+      ));
+      const hasReview = groups.some((group) => group.dataset.assessmentMode === "review");
+
+      if (unanswered) {
+        feedback.textContent = unanswered === 1
+          ? "Complete the highlighted answer before submitting this page."
+          : `Complete the highlighted answers before submitting this page. ${unanswered} answers are missing.`;
+        dock.dataset.pageResult = "incomplete";
+      } else if (incorrect) {
+        feedback.textContent = "Some answers need another try. Review the red-highlighted responses and submit again.";
+        dock.dataset.pageResult = "incorrect";
+        submit.textContent = "Check again";
+      } else {
+        feedback.textContent = hasReview
+          ? "Page submitted. Fixed answers are correct; open answers are saved for teacher review."
+          : "Excellent! Every answer on this page is correct.";
+        dock.dataset.pageResult = "correct";
+        submit.textContent = "Check again";
+      }
+      feedback.focus();
+    });
+
+    reset?.addEventListener("click", () => {
+      groups.forEach(clearGroupAnswers);
+      dock.removeAttribute("data-page-result");
+      if (submit) submit.textContent = "Submit";
+      if (feedback) {
+        feedback.textContent = "Page answers cleared. Complete the activities, then select Submit.";
+        feedback.focus();
+      }
+    });
+
+    groups.flatMap(responseFields).forEach((field) => {
+      ["input", "change"].forEach((eventName) => field.addEventListener(eventName, () => {
+        if (!dock.dataset.pageResult) return;
+        dock.removeAttribute("data-page-result");
+        if (submit) submit.textContent = "Submit";
+        if (feedback) feedback.textContent = "Your changes are saved. Select Submit to check the page again.";
+      }));
+    });
+  };
+
   const announce = (responseId, message) => {
     const status = document.getElementById(`${responseId}_status`);
     if (status) status.textContent = message;
@@ -349,6 +407,7 @@
     });
     document.querySelectorAll("canvas[data-drawing-response]").forEach(initialiseDrawing);
     document.querySelectorAll("[data-response-group]").forEach(initialiseResponseGroup);
+    document.querySelectorAll("[data-page-activity-dock]").forEach(initialisePageActivityDock);
     initialiseSourceFormatting();
   };
 
