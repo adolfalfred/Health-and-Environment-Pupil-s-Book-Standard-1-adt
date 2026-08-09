@@ -77,6 +77,148 @@
     }
   };
 
+  const normaliseAnswer = (value) => value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("en")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/^(a|an|the)\s+/, "");
+
+  const responseFields = (group) => Array.from(group.querySelectorAll("[data-activity-item]"));
+
+  const responseContainer = (field) => field.closest(".response-card, .matching-answer-cell");
+
+  const clearAssessmentAppearance = (group) => {
+    group.classList.remove("assessment-correct", "assessment-incorrect", "assessment-submitted");
+    responseFields(group).forEach((field) => {
+      field.removeAttribute("aria-invalid");
+      responseContainer(field)?.classList.remove("answer-correct", "answer-incorrect", "answer-unanswered");
+    });
+  };
+
+  const setFieldResult = (field, result) => {
+    const container = responseContainer(field);
+    container?.classList.remove("answer-correct", "answer-incorrect", "answer-unanswered");
+    if (result) container?.classList.add(`answer-${result}`);
+    if (result === "incorrect" || result === "unanswered") {
+      field.setAttribute("aria-invalid", "true");
+    } else {
+      field.removeAttribute("aria-invalid");
+    }
+  };
+
+  const defaultFeedback = (group) => group.dataset.assessmentMode === "objective"
+    ? "Complete every answer, then submit to check your work."
+    : "Complete the activity, then submit it for teacher review.";
+
+  const resetAssessmentMessage = (group, message = defaultFeedback(group)) => {
+    clearAssessmentAppearance(group);
+    const feedback = group.querySelector(".activity-feedback");
+    if (feedback) feedback.textContent = message;
+    const submit = group.querySelector("[data-submit-group]");
+    if (submit) submit.textContent = "Submit answers";
+  };
+
+  const assessGroup = (group, { restore = false } = {}) => {
+    const fields = responseFields(group);
+    const values = fields.map((field) => field.value.trim());
+    const unanswered = values.reduce((count, value) => count + Number(!value), 0);
+    const feedback = group.querySelector(".activity-feedback");
+    const submit = group.querySelector("[data-submit-group]");
+
+    clearAssessmentAppearance(group);
+    if (unanswered) {
+      fields.forEach((field, index) => {
+        if (!values[index]) setFieldResult(field, "unanswered");
+      });
+      group.classList.add("assessment-incorrect");
+      if (feedback) {
+        feedback.textContent = unanswered === 1
+          ? "Complete the unanswered part before submitting."
+          : `Complete all parts before submitting. ${unanswered} answers are still missing.`;
+      }
+      if (!restore) feedback?.focus?.();
+      return false;
+    }
+
+    if (group.dataset.assessmentMode === "objective") {
+      let answerKey;
+      try {
+        answerKey = JSON.parse(group.dataset.answerKey || "[]");
+      } catch (_) {
+        answerKey = [];
+      }
+      if (answerKey.length !== fields.length) {
+        if (feedback) feedback.textContent = "This activity cannot be checked right now. Please ask your teacher.";
+        return false;
+      }
+
+      let correct = 0;
+      fields.forEach((field, index) => {
+        const answer = normaliseAnswer(values[index]);
+        const accepted = answerKey[index].some((candidate) => normaliseAnswer(candidate) === answer);
+        setFieldResult(field, accepted ? "correct" : "incorrect");
+        if (accepted) correct += 1;
+      });
+      const allCorrect = correct === fields.length;
+      group.classList.add(allCorrect ? "assessment-correct" : "assessment-incorrect");
+      if (feedback) {
+        feedback.textContent = allCorrect
+          ? `Excellent! All ${fields.length} answers are correct.`
+          : `${correct} of ${fields.length} answers are correct. Review the highlighted answers and try again.`;
+      }
+      if (submit) submit.textContent = allCorrect ? "Check answers again" : "Check again";
+      safeSet(`${group.id}:assessment`, JSON.stringify({ submitted: true }));
+    } else {
+      group.classList.add("assessment-submitted");
+      if (feedback) feedback.textContent = "Answer submitted and saved. Ask your teacher to review it.";
+      if (submit) submit.textContent = "Submit again";
+      safeSet(`${group.id}:assessment`, JSON.stringify({ submitted: true }));
+    }
+    if (!restore) feedback?.focus?.();
+    return true;
+  };
+
+  const clearGroupAnswers = (group) => {
+    responseFields(group).forEach((field) => {
+      if (field.dataset.canvasResponse) {
+        document.querySelector(`[data-clear-drawing="${field.id}"]`)?.click();
+        const alternative = document.querySelector(`[data-canvas-alternative="${field.id}"]`);
+        if (alternative) {
+          alternative.value = "";
+          safeSet(alternative.dataset.practiceStorage, "");
+          alternative.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+      }
+      field.value = "";
+      safeSet(field.dataset.practiceStorage, "");
+      field.dispatchEvent(new Event("input", { bubbles: true }));
+      field.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+    safeSet(`${group.id}:assessment`, "");
+    resetAssessmentMessage(group, "Answers cleared. Complete the activity when you are ready.");
+    responseFields(group).find((field) => field.type !== "hidden")?.focus();
+  };
+
+  const initialiseResponseGroup = (group) => {
+    const submit = group.querySelector("[data-submit-group]");
+    const reset = group.querySelector("[data-reset-group]");
+    submit?.addEventListener("click", () => assessGroup(group));
+    reset?.addEventListener("click", () => clearGroupAnswers(group));
+
+    responseFields(group).forEach((field) => {
+      ["input", "change"].forEach((eventName) => field.addEventListener(eventName, () => {
+        if (!safeGet(`${group.id}:assessment`)) return;
+        safeSet(`${group.id}:assessment`, "");
+        resetAssessmentMessage(group, "Your change is saved. Submit again to check or send it.");
+      }));
+    });
+
+    if (safeGet(`${group.id}:assessment`)) assessGroup(group, { restore: true });
+  };
+
   const announce = (responseId, message) => {
     const status = document.getElementById(`${responseId}_status`);
     if (status) status.textContent = message;
@@ -206,6 +348,7 @@
       field.addEventListener("change", () => safeSet(key, field.value));
     });
     document.querySelectorAll("canvas[data-drawing-response]").forEach(initialiseDrawing);
+    document.querySelectorAll("[data-response-group]").forEach(initialiseResponseGroup);
     initialiseSourceFormatting();
   };
 

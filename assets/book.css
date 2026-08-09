@@ -567,9 +567,102 @@ textarea {
   resize: vertical;
 }
 
+.activity-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: .15rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
+.activity-submit,
+.activity-reset {
+  min-height: 3rem;
+  padding: .65rem 1.1rem;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: .7rem;
+  cursor: pointer;
+}
+
+.activity-submit {
+  color: #fff;
+  background: #176b55;
+  border-color: #0f5542;
+}
+
+.activity-submit:hover {
+  background: #0f5542;
+}
+
+.activity-reset {
+  color: #173d33;
+  background: #fff;
+  border-color: #638f81;
+}
+
+.activity-reset:hover {
+  background: #eef8f4;
+}
+
+.activity-feedback {
+  display: block;
+  min-width: min(100%, 19rem);
+  padding: .65rem .8rem;
+  flex: 1 1 23rem;
+  color: #173d33;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  background: #f4f8f6;
+  border-left: .35rem solid #638f81;
+  border-radius: .35rem;
+}
+
+.assessment-correct .activity-feedback {
+  color: #0b5139;
+  background: #eaf8f0;
+  border-left-color: #1f8a5b;
+}
+
+.assessment-incorrect .activity-feedback {
+  color: #7a271a;
+  background: #fff1ed;
+  border-left-color: #bf3b2b;
+}
+
+.assessment-submitted .activity-feedback {
+  color: #164e63;
+  background: #eaf8fc;
+  border-left-color: #1683a2;
+}
+
+.response-card.answer-correct,
+.matching-answer-cell.answer-correct {
+  box-shadow: 0 0 0 3px #39a66f;
+}
+
+.response-card.answer-incorrect,
+.matching-answer-cell.answer-incorrect {
+  box-shadow: 0 0 0 3px #d85342;
+}
+
+.response-card.answer-unanswered,
+.matching-answer-cell.answer-unanswered {
+  box-shadow: 0 0 0 3px #d28a18;
+}
+
 .response-card input:focus-visible,
 .response-card select:focus-visible,
 .response-card textarea:focus-visible,
+.activity-submit:focus-visible,
+.activity-reset:focus-visible,
+.activity-feedback:focus-visible,
 .clear-drawing:focus-visible,
 .visible-toc a:focus-visible {
   outline: .22rem solid #0b65c2;
