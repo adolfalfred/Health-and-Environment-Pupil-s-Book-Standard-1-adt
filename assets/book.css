@@ -662,13 +662,47 @@ textarea {
    answer directly below its own picture. */
 .source-two-column-image-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: min(100%, 58rem);
+  width: min(100%, 54rem);
+  gap: .75rem;
 }
 
 .source-two-column-image-grid > .response-card:nth-last-of-type(2):nth-of-type(odd) {
   grid-column: 1 / -1;
-  width: calc((100% - 1rem) / 2);
+  width: calc((100% - .75rem) / 2);
   justify-self: center;
+}
+
+.source-two-column-image-grid > .response-card {
+  padding: .65rem;
+  gap: .45rem;
+  border-radius: .75rem;
+}
+
+.source-two-column-image-grid .source-picture-number {
+  top: .9rem;
+  left: .9rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.2rem;
+}
+
+.source-two-column-image-grid .response-task-figure {
+  min-height: 9rem;
+  padding: .35rem;
+}
+
+.source-two-column-image-grid .response-image {
+  height: 8rem;
+  padding: .25rem;
+}
+
+.source-two-column-image-grid .response-card label {
+  font-size: 1rem;
+}
+
+.source-two-column-image-grid .response-card input[type="text"] {
+  min-height: 2.75rem;
+  padding: .5rem .65rem;
 }
 
 .response-group > legend {
@@ -800,34 +834,29 @@ textarea {
 }
 
 .dynamic-content-page section[data-section-id]:has(> .page-activity-dock) {
-  padding-bottom: 7rem;
+  padding-bottom: 1rem;
 }
 
 .page-activity-dock {
-  position: fixed;
-  z-index: 38;
-  right: .65rem;
-  bottom: 4.45rem;
-  left: .65rem;
+  position: static;
   display: grid;
   grid-template-columns: auto auto minmax(14rem, 1fr);
   width: min(64rem, calc(100% - 1.3rem));
-  margin-inline: auto;
-  padding: .65rem;
+  margin: 1rem auto 1.5rem;
+  padding: .5rem;
   align-items: center;
-  gap: .6rem;
-  background: rgba(255, 255, 255, .98);
-  border: 2px solid #176b55;
-  border-radius: .85rem;
-  box-shadow: 0 .35rem 1.4rem rgba(19, 61, 50, .22);
+  gap: .45rem;
+  background: #f7fbf9;
+  border: 1px solid #8db8aa;
+  border-radius: .65rem;
 }
 
 .page-activity-submit,
 .page-activity-reset {
-  min-height: 3rem;
-  padding: .6rem 1.15rem;
+  min-height: 2.65rem;
+  padding: .45rem .85rem;
   font-family: "Atkinson Hyperlegible", Arial, sans-serif;
-  font-size: 1.08rem;
+  font-size: .98rem;
   font-weight: 800;
   border-radius: .65rem;
   cursor: pointer;
@@ -867,11 +896,10 @@ textarea {
 
 @media (max-width: 42rem) {
   .dynamic-content-page section[data-section-id]:has(> .page-activity-dock) {
-    padding-bottom: 10rem;
+    padding-bottom: .5rem;
   }
 
   .page-activity-dock {
-    bottom: 4.2rem;
     grid-template-columns: 1fr 1fr;
   }
 
@@ -883,6 +911,17 @@ textarea {
   .page-activity-feedback {
     grid-column: 1 / -1;
   }
+}
+
+/* The source's road-sign matching table is intentionally compact.  Preserve
+   its two-column geometry without stretching each picture into a large card. */
+.matching-markers-plain .matching-source-row {
+  min-height: 8.25rem;
+}
+
+.matching-markers-plain .matching-item-figure,
+.matching-markers-plain .matching-choice-figure {
+  height: 7rem;
 }
 
 .assessment-correct .activity-feedback {
