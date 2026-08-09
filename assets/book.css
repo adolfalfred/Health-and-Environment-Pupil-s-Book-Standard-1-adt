@@ -342,7 +342,7 @@ span[data-word-index].bg-yellow-300 {
   color: #fff;
   font-family: "Atkinson Hyperlegible", Arial, sans-serif;
   font-size: clamp(1.55rem, 4vw, 2.15rem);
-  font-style: italic;
+  font-style: normal;
   font-weight: 800;
   line-height: 1.15;
   text-align: center;
@@ -368,7 +368,7 @@ span[data-word-index].bg-yellow-300 {
 .vocabulary-entry dd {
   margin: 0;
   font-size: clamp(1.2rem, 2.8vw, 1.55rem);
-  font-style: italic;
+  font-style: normal;
   line-height: 1.45;
 }
 
@@ -390,7 +390,7 @@ span[data-word-index].bg-yellow-300 {
   padding-left: clamp(1.6rem, 5vw, 3.8rem);
   font-family: "Atkinson Hyperlegible", Arial, sans-serif;
   font-size: clamp(1.15rem, 2.7vw, 1.5rem);
-  font-style: italic;
+  font-style: normal;
   line-height: 1.55;
   text-indent: calc(-1 * clamp(1.6rem, 5vw, 3.8rem));
 }
@@ -468,6 +468,10 @@ span[data-word-index].bg-yellow-300 {
 .dynamic-content-page .source-layout .source-fragment {
   grid-column: auto;
   min-width: 0;
+}
+
+.dynamic-content-page .source-layout .source-text.acknowledgement-editors br {
+  display: block;
 }
 
 .dynamic-content-page .source-layout .source-row-start {
