@@ -224,6 +224,131 @@ textarea {
   font-size: clamp(1.45rem, 3.5vw, 2rem);
 }
 
+.dynamic-content-page .source-layout .source-section-heading {
+  position: relative;
+  display: flex;
+  grid-column: 1 / -1;
+  width: fit-content;
+  min-width: min(100%, 15rem);
+  max-width: 100%;
+  margin: .5rem 0 .25rem;
+  padding: .55rem clamp(1.15rem, 4vw, 2.1rem);
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.45rem, 3.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  border-radius: .75rem;
+  box-shadow: 0 .18rem .35rem rgb(34 49 48 / 20%);
+}
+
+.dynamic-content-page .source-layout .source-question-heading {
+  color: #073f43;
+  background: linear-gradient(90deg, #8ee0df, #c9f1ec);
+  border: 2px solid #18aeb6;
+  border-radius: 999px .75rem .75rem 999px;
+}
+
+.dynamic-content-page .source-layout .source-activity-heading {
+  background: linear-gradient(135deg, #ff4b86, #ec1871);
+  border: 2px solid #fff;
+  border-radius: .7rem .7rem 1.25rem .7rem;
+  box-shadow: 0 .28rem 0 #c50b60, 0 .4rem .7rem rgb(95 9 54 / 20%);
+}
+
+.dynamic-content-page .source-layout .source-activity-heading .source-number {
+  display: inline-grid;
+  min-width: 2.1rem;
+  min-height: 2.1rem;
+  margin-left: .55rem;
+  padding: .18rem .48rem;
+  place-items: center;
+  color: #d80b61;
+  background: #fff34f;
+  border-radius: 999px;
+}
+
+.dynamic-content-page .source-layout .source-exercise-heading {
+  background: #28bbb5;
+  border: 2px solid #00a8b5;
+  border-radius: .75rem;
+}
+
+.dynamic-content-page .source-layout .source-exercise-heading .source-number {
+  display: inline-grid;
+  min-width: 2.1rem;
+  min-height: 2.1rem;
+  margin-left: .6rem;
+  padding: .18rem .5rem;
+  place-items: center;
+  color: #008c98;
+  background: #fff;
+  border-radius: .35rem;
+}
+
+.dynamic-content-page .source-layout .source-story-heading {
+  width: 100%;
+  color: #2c2724;
+  background: #ecebe9;
+  border-top: 3px solid #8d563d;
+  border-radius: .7rem .7rem 0 0;
+  box-shadow: none;
+}
+
+.dynamic-content-page .source-layout .source-song-heading {
+  background: linear-gradient(120deg, #7968c5, #4c93c7);
+}
+
+.dynamic-content-page .source-layout .source-reference-heading {
+  background: linear-gradient(120deg, #137b81, #26aaa5);
+}
+
+.dynamic-content-page .source-layout .source-instruction,
+.dynamic-content-page .source-layout .source-question-item,
+.dynamic-content-page .source-layout .source-activity-instruction,
+.dynamic-content-page .source-layout .source-exercise-instruction {
+  padding: .7rem .85rem;
+  border-radius: .45rem;
+}
+
+.dynamic-content-page .source-layout .source-instruction {
+  font-weight: 700;
+  background: #eefbf9;
+  border-left: .45rem solid #16aab2;
+}
+
+.dynamic-content-page .source-layout .source-question-item {
+  background: #fffbd2;
+  border-left: .4rem solid #16aab2;
+}
+
+.dynamic-content-page .source-layout .source-activity-instruction {
+  background: #fff3f8;
+  border-left: .4rem solid #ec1871;
+}
+
+.dynamic-content-page .source-layout .source-exercise-instruction {
+  background: #f1fcfb;
+  border-left: .4rem solid #20b5b5;
+}
+
+.dynamic-content-page .source-layout .source-story-copy {
+  margin-top: calc(-1 * clamp(.8rem, 2vw, 1.1rem));
+  padding: .5rem 1rem;
+  background: #f2f1ef;
+  border-right: 1px solid #d7d2cc;
+  border-left: 1px solid #d7d2cc;
+}
+
+.dynamic-content-page .source-layout .source-song-copy {
+  padding: .55rem .8rem;
+  background: #f3f0ff;
+  border-left: .4rem solid #7968c5;
+}
+
 .dynamic-content-page .source-layout .source-fragment {
   grid-column: auto;
   min-width: 0;
