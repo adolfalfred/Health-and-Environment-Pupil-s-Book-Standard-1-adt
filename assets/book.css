@@ -306,6 +306,102 @@ textarea {
   background: linear-gradient(120deg, #137b81, #26aaa5);
 }
 
+.reference-page-content {
+  width: min(100%, 64rem);
+  margin: 0 auto 1.5rem;
+  padding: clamp(.85rem, 2.5vw, 1.5rem);
+  color: #27211c;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
+}
+
+.reference-pill-title {
+  width: fit-content;
+  min-width: min(100%, 20rem);
+  margin: .5rem auto clamp(2rem, 5vw, 3.2rem);
+  padding: .55rem clamp(2rem, 7vw, 4.5rem);
+  color: #fff;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.55rem, 4vw, 2.15rem);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  background: linear-gradient(#ff65bf 0%, #f0068f 48%, #d30078 100%);
+  border-radius: 999px;
+  box-shadow: 0 .42rem 0 #76004d, 0 .6rem .8rem rgb(83 0 50 / 20%);
+}
+
+.vocabulary-list {
+  display: grid;
+  margin: 0;
+  gap: clamp(1.15rem, 3vw, 1.75rem);
+}
+
+.vocabulary-entry {
+  display: grid;
+  grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 5vw, 3.4rem);
+  align-items: start;
+}
+
+.vocabulary-entry dt,
+.vocabulary-entry dd {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.8vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.vocabulary-entry dt {
+  font-weight: 800;
+}
+
+.bibliography-list {
+  display: grid;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0;
+  gap: clamp(1rem, 2.5vw, 1.45rem);
+  list-style: none;
+}
+
+.bibliography-entry {
+  margin: 0;
+  padding-left: clamp(1.6rem, 5vw, 3.8rem);
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.15rem, 2.7vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.55;
+  text-indent: calc(-1 * clamp(1.6rem, 5vw, 3.8rem));
+}
+
+.reference-page-content .printed-page-number {
+  margin: 2.5rem 0 0;
+  color: #27211c;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 42rem) {
+  .reference-pill-title {
+    min-width: min(100%, 15rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .vocabulary-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .25rem;
+  }
+
+  .vocabulary-entry dd {
+    padding-left: .8rem;
+    border-left: .2rem solid #e60083;
+  }
+}
+
 .dynamic-content-page .source-layout .source-instruction,
 .dynamic-content-page .source-layout .source-question-item,
 .dynamic-content-page .source-layout .source-activity-instruction,
