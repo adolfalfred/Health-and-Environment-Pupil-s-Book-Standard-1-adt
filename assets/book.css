@@ -1053,6 +1053,31 @@ textarea {
 }
 
 @media (max-width: 767px) {
+  #interface-container [role="dialog"] > [role="group"].max-w-xl {
+    display: flex !important;
+    width: calc(100vw - .5rem) !important;
+    max-width: calc(100vw - .5rem) !important;
+    gap: .125rem !important;
+    padding: .25rem !important;
+    justify-content: space-between !important;
+  }
+
+  #interface-container [role="dialog"] > [role="group"].max-w-xl > button {
+    flex: 0 0 2.25rem;
+    width: 2.25rem !important;
+    min-width: 0 !important;
+    height: 2.25rem !important;
+    padding: 0 !important;
+  }
+
+  #interface-container [role="dialog"] > [role="group"].max-w-xl > button:nth-of-type(5) {
+    flex: 1 1 4.5rem;
+    width: auto !important;
+    min-width: 4.5rem !important;
+    padding-inline: .2rem !important;
+    font-size: .7rem !important;
+  }
+
   #nav-container > [role="group"] {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto;
