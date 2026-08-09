@@ -519,6 +519,20 @@ textarea {
   border-radius: 0;
 }
 
+/* A lone written answer is a full-row writing area, not one compact grid card. */
+.full-width-text-response {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.full-width-text-response > .response-card {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
 .response-group > legend {
   max-width: 56rem;
   padding: .35rem .75rem;
