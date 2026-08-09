@@ -897,6 +897,41 @@ textarea {
 }
 
 @media (max-width: 767px) {
+  #nav-container > [role="group"] {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .25rem;
+    padding: .35rem .5rem;
+  }
+
+  #nav-container > [role="group"] > :nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  #nav-container > [role="group"] > :nth-child(2) {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  #nav-container > [role="group"] > :nth-child(2) > button {
+    width: 100%;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding-inline: .5rem;
+  }
+
+  #nav-container > [role="group"] > :nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-width: 0 !important;
+    padding-left: 0 !important;
+    justify-content: center !important;
+    gap: .25rem !important;
+  }
+
   .reader-page {
     width: 100%;
     min-height: 100vh;
