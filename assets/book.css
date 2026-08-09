@@ -270,6 +270,54 @@ textarea {
   width: min(100%, 46rem);
 }
 
+.dynamic-content-page .source-layout .lesson-ribbon {
+  position: relative;
+  grid-column: 1 / -1;
+  width: min(100%, 54rem);
+}
+
+.lesson-ribbon {
+  z-index: 0;
+  isolation: isolate;
+  margin: .35rem 0 .75rem;
+  padding: .45rem 24% .45rem 1.45rem;
+  color: #fff;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.45rem, 3.8vw, 2.15rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.15;
+  text-shadow: 0 .08rem .08rem rgb(105 31 0 / 45%);
+}
+
+.lesson-ribbon::before,
+.lesson-ribbon::after {
+  position: absolute;
+  left: 0;
+  content: "";
+}
+
+.lesson-ribbon::before {
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  width: min(82%, 38rem);
+  background: linear-gradient(180deg, #ff7533, #f4511e 70%, #dd3918);
+  border: 3px solid #ef3e1d;
+  border-radius: 1rem 2.6rem .45rem 1rem;
+  box-shadow: inset 0 .15rem .18rem rgb(255 255 255 / 42%);
+  transform: skewX(4deg);
+  transform-origin: left bottom;
+}
+
+.lesson-ribbon::after {
+  z-index: -2;
+  right: 0;
+  bottom: .12rem;
+  height: .2rem;
+  background: linear-gradient(90deg, #ef3e1d 0 94%, transparent);
+}
+
 .chapter-banner {
   width: min(100%, 58rem);
   margin: .25rem auto 1.75rem;
@@ -853,6 +901,15 @@ textarea {
   .chapter-banner {
     margin-bottom: 1.35rem;
     padding-inline: .65rem;
+  }
+
+  .lesson-ribbon {
+    padding: .45rem .8rem;
+    font-size: clamp(1.2rem, 6.5vw, 1.55rem);
+  }
+
+  .lesson-ribbon::before {
+    width: 100%;
   }
 
   .chapter-number {
