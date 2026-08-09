@@ -31,6 +31,26 @@ textarea {
   font: inherit;
 }
 
+/* Read-aloud highlighting must never change line wrapping or typography. */
+span[data-word-index].bg-yellow-300 {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  vertical-align: baseline;
+}
+
+.tts-layout-preserved-active {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  box-shadow: 0 0 0 2px #2563eb;
+  border-radius: .35rem;
+  background-color: rgb(37 99 235 / 4%);
+}
+
 .reader-page {
   width: min(100% - 2rem, 80rem);
   min-height: calc(100vh - 2rem);

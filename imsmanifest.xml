@@ -22,6 +22,7 @@
       <file href=".gitignore"/>
       <file href="assets/base.bundle.local.js"/>
       <file href="assets/book-responses.js"/>
+      <file href="assets/book-tts-layout.js"/>
       <file href="assets/book.css"/>
       <file href="assets/config.json"/>
       <file href="assets/favicon_io/about.txt"/>
