@@ -86,9 +86,59 @@
     .trim()
     .replace(/^(a|an|the)\s+/, "");
 
+  const splitAggregateAnswers = (value) => value
+    .split(/[\r\n;,]+/)
+    .map((part) => part
+      .trim()
+      .replace(/^(?:picture\s*)?(?:\d+(?:\s*\([a-z]\))?|[a-z])\s*[.):\-]\s*/i, "")
+      .trim())
+    .filter(Boolean);
+
   const responseFields = (group) => Array.from(group.querySelectorAll("[data-activity-item]"));
 
   const responseContainer = (field) => field.closest(".response-card, .matching-answer-cell");
+
+  const synchroniseMatchingChoices = (group, changedField = null) => {
+    const fields = Array.from(group.querySelectorAll("input[data-matching-input][data-activity-item]"));
+    fields.forEach((field) => {
+      const normalised = field.value.toUpperCase().replace(/[^A-Z]/g, "").slice(0, 1);
+      if (field.value !== normalised) field.value = normalised;
+    });
+
+    if (changedField?.value && fields.some(
+      (field) => field !== changedField && field.value === changedField.value
+    )) {
+      changedField.value = "";
+      safeSet(changedField.dataset.practiceStorage, "");
+      changedField.setAttribute("aria-invalid", "true");
+      changedField.title = "This matching letter has already been used.";
+      responseContainer(changedField)?.classList.add("answer-unanswered");
+    } else if (changedField) {
+      changedField.removeAttribute("aria-invalid");
+      changedField.removeAttribute("title");
+      responseContainer(changedField)?.classList.remove("answer-unanswered");
+    }
+
+    const usedChoices = new Set();
+    fields.forEach((field) => {
+      if (!field.value) return;
+      if (usedChoices.has(field.value)) {
+        field.value = "";
+        safeSet(field.dataset.practiceStorage, "");
+        return;
+      }
+      usedChoices.add(field.value);
+    });
+  };
+
+  const initialiseUniqueMatchingChoices = (group) => {
+    const fields = Array.from(group.querySelectorAll("input[data-matching-input][data-activity-item]"));
+    if (!fields.length) return;
+    synchroniseMatchingChoices(group);
+    fields.forEach((field) => field.addEventListener("input", () => {
+      synchroniseMatchingChoices(group, field);
+    }));
+  };
 
   const clearAssessmentAppearance = (group) => {
     group.classList.remove("assessment-correct", "assessment-incorrect", "assessment-submitted");
@@ -150,9 +200,51 @@
       } catch (_) {
         answerKey = [];
       }
-      if (answerKey.length !== fields.length) {
+      const aggregateMode = group.dataset.answerMode === "all-in-one";
+      const expectedAggregateCount = Number(group.dataset.answerCount || 0);
+      if (
+        (!aggregateMode && answerKey.length !== fields.length)
+        || (aggregateMode && (
+          fields.length !== 1
+          || answerKey.length !== expectedAggregateCount
+        ))
+      ) {
         if (feedback) feedback.textContent = "This activity cannot be checked right now. Please ask your teacher.";
         return false;
+      }
+
+      if (aggregateMode) {
+        const answers = splitAggregateAnswers(values[0]);
+        if (answers.length !== answerKey.length) {
+          setFieldResult(fields[0], "incorrect");
+          group.classList.add("assessment-incorrect");
+          if (feedback) {
+            feedback.textContent = `Enter ${answerKey.length} answers, one per line, in picture-number order.`;
+          }
+          if (submit) submit.textContent = "Check again";
+          if (!restore) feedback?.focus?.();
+          return false;
+        }
+
+        const correct = answers.reduce((count, answerValue, index) => {
+          const answer = normaliseAnswer(answerValue);
+          const accepted = answerKey[index].some(
+            (candidate) => normaliseAnswer(candidate) === answer
+          );
+          return count + Number(accepted);
+        }, 0);
+        const allCorrect = correct === answerKey.length;
+        setFieldResult(fields[0], allCorrect ? "correct" : "incorrect");
+        group.classList.add(allCorrect ? "assessment-correct" : "assessment-incorrect");
+        if (feedback) {
+          feedback.textContent = allCorrect
+            ? `Excellent! All ${answerKey.length} answers are correct.`
+            : `${correct} of ${answerKey.length} answers are correct. Check the order and try again.`;
+        }
+        if (submit) submit.textContent = allCorrect ? "Check answers again" : "Check again";
+        safeSet(`${group.id}:assessment`, JSON.stringify({ submitted: true }));
+        if (!restore) feedback?.focus?.();
+        return allCorrect;
       }
 
       let correct = 0;
@@ -262,7 +354,7 @@
       dock.removeAttribute("data-page-result");
       if (submit) submit.textContent = "Submit";
       if (feedback) {
-        feedback.textContent = "Page answers cleared. Complete the activities, then select Submit.";
+        feedback.textContent = "Page answers cleared.";
         feedback.focus();
       }
     });
@@ -272,7 +364,7 @@
         if (!dock.dataset.pageResult) return;
         dock.removeAttribute("data-page-result");
         if (submit) submit.textContent = "Submit";
-        if (feedback) feedback.textContent = "Your changes are saved. Select Submit to check the page again.";
+        if (feedback) feedback.textContent = "Your changes are saved.";
       }));
     });
   };
@@ -406,6 +498,8 @@
       field.addEventListener("change", () => safeSet(key, field.value));
     });
     document.querySelectorAll("canvas[data-drawing-response]").forEach(initialiseDrawing);
+    document.querySelectorAll(".matching-group[data-response-group]")
+      .forEach(initialiseUniqueMatchingChoices);
     document.querySelectorAll("[data-response-group]").forEach(initialiseResponseGroup);
     document.querySelectorAll("[data-page-activity-dock]").forEach(initialisePageActivityDock);
     initialiseSourceFormatting();

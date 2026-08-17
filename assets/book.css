@@ -31,24 +31,30 @@ textarea {
   font: inherit;
 }
 
-/* Read-aloud highlighting must never change line wrapping or typography. */
-span[data-word-index].bg-yellow-300 {
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  font: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-  vertical-align: baseline;
+/* The read-aloud marker paints a Range without wrapping or rebuilding text. */
+::highlight(adt-narration-word) {
+  color: #000;
+  background-color: #fde047;
+}
+
+.tts-runtime-word-map {
+  display: none !important;
+}
+
+.tts-word-highlight-overlay {
+  position: absolute;
+  z-index: 2147483000;
+  display: block;
+  pointer-events: none;
+  background: rgb(253 224 71 / 68%);
+  mix-blend-mode: multiply;
 }
 
 .tts-layout-preserved-active {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  box-shadow: 0 0 0 2px #2563eb;
-  border-radius: .35rem;
-  background-color: rgb(37 99 235 / 4%);
+  background-color: #fde047 !important;
+  color: #000 !important;
 }
 
 .reader-page {
@@ -150,6 +156,12 @@ span[data-word-index].bg-yellow-300 {
   font-style: normal;
   font-weight: 600;
   font-variant-numeric: lining-nums tabular-nums;
+}
+
+section[data-section-id="pg006_sec001"] .source-number {
+  font-family: inherit;
+  font-weight: 400;
+  font-variant-numeric: normal;
 }
 
 .source-structured-lines {
@@ -491,6 +503,341 @@ span[data-word-index].bg-yellow-300 {
   border-radius: 0 0 .8rem .8rem;
 }
 
+/* The hair-washing song is one illustrated composition in the source book:
+   a singing pupil beside a single lyric panel. */
+.dynamic-content-page .source-layout .song-performance-card {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(10rem, .38fr) minmax(0, 1fr);
+  width: 100%;
+  gap: clamp(.8rem, 2.5vw, 1.5rem);
+  align-items: center;
+}
+
+.song-singer-visual {
+  position: relative;
+  display: grid;
+  min-height: 19rem;
+  place-items: end center;
+}
+
+.dynamic-content-page .source-layout .song-singer-visual #pg020_im003_figure {
+  width: 100%;
+  max-width: 15rem;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.song-singer-visual #pg020_im003_figure > img {
+  width: 100%;
+  height: clamp(15rem, 29vw, 21rem);
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.song-music-notes {
+  position: absolute;
+  top: 8%;
+  right: -4%;
+  color: #08aebb;
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: .2rem;
+  line-height: 1;
+  transform: rotate(-8deg);
+  text-shadow: .08rem .08rem 0 #f0068f;
+}
+
+.song-lyric-panel {
+  position: relative;
+  padding: clamp(.8rem, 2.5vw, 1.35rem) clamp(.8rem, 3vw, 1.5rem);
+  overflow: visible;
+  color: #08aebb;
+  background: #fff2ad;
+  border: 2px solid #18b8c2;
+  border-radius: 1.15rem;
+  box-shadow: 0 .2rem .4rem rgb(30 85 83 / 15%);
+}
+
+.song-lyric-panel::before,
+.song-lyric-panel::after {
+  position: absolute;
+  top: 31%;
+  width: 0;
+  height: 0;
+  content: "";
+  border-style: solid;
+  transform: translateY(-50%);
+}
+
+.song-lyric-panel::before {
+  left: -1.65rem;
+  border-width: 1.2rem 1.65rem 1.2rem 0;
+  border-color: transparent #18b8c2 transparent transparent;
+}
+
+.song-lyric-panel::after {
+  left: -1.42rem;
+  border-width: 1rem 1.42rem 1rem 0;
+  border-color: transparent #fff2ad transparent transparent;
+}
+
+.dynamic-content-page .source-layout .song-lyric-panel .source-song-heading {
+  display: block;
+  width: fit-content;
+  min-width: 0;
+  margin: 0 auto .35rem;
+  padding: 0;
+  color: #f0068f;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.55rem, 3.7vw, 2.2rem);
+  text-align: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.dynamic-content-page .source-layout .song-lyric-panel .source-song-copy {
+  width: 100%;
+  margin: 0;
+  padding: .55rem .35rem;
+  color: #08aebb;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.25rem, 2.9vw, 1.7rem);
+  line-height: 1.35;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px dotted #f177ae;
+  border-radius: 0;
+}
+
+.dynamic-content-page .source-layout .song-lyric-panel .source-song-copy:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 44rem) {
+  .dynamic-content-page .source-layout .song-performance-card {
+    grid-template-columns: minmax(7rem, .34fr) minmax(0, 1fr);
+    gap: .65rem;
+  }
+
+  .song-singer-visual {
+    min-height: 14rem;
+  }
+
+  .song-singer-visual #pg020_im003_figure > img {
+    height: clamp(12rem, 54vw, 17rem);
+  }
+
+  .song-music-notes {
+    top: 4%;
+    right: -8%;
+    font-size: clamp(1.5rem, 7vw, 2.4rem);
+  }
+
+  .song-lyric-panel {
+    padding: .65rem .55rem;
+  }
+}
+
+/* Printed song panels use one illustrated music frame. Keep the heading, every
+   lyric line, and the four corner ornaments together instead of allowing the
+   source fragments to fall into the page grid independently. */
+.dynamic-content-page .source-layout .song-performance-card.song-book-frame-card {
+  position: relative;
+  display: block;
+  width: min(100%, 64rem);
+  margin: .8rem auto;
+  padding: clamp(3rem, 6vw, 4.8rem) clamp(1rem, 5vw, 4.2rem);
+  overflow: hidden;
+  background: #f5e5d5;
+  border-radius: .35rem;
+  box-shadow: 0 .2rem .55rem rgb(87 52 27 / 16%);
+}
+
+.song-book-frame-card::before,
+.song-book-frame-card::after {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  height: clamp(1.15rem, 2.8vw, 1.7rem);
+  content: "";
+  background: repeating-linear-gradient(
+    135deg,
+    #f36b12 0,
+    #f36b12 5rem,
+    #ffb525 5rem,
+    #ffb525 6.9rem,
+    #f36b12 6.9rem,
+    #f36b12 11rem
+  );
+}
+
+.song-book-frame-card::before {
+  top: 0;
+}
+
+.song-book-frame-card::after {
+  bottom: 0;
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .song-lyric-panel {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(.25rem, 4vw, 3rem);
+  color: #2d2521;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .song-lyric-panel::before,
+.dynamic-content-page .source-layout .song-book-frame-card .song-lyric-panel::after {
+  display: none;
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .song-lyric-panel > .source-positioned {
+  position: static;
+  width: auto;
+  min-height: 0;
+  transform: none;
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .source-song-heading {
+  display: block;
+  width: max-content !important;
+  max-width: 100%;
+  margin: 0 auto .5rem;
+  padding: .28rem clamp(2.5rem, 7vw, 4.8rem);
+  color: #fff;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.45rem, 3.5vw, 2rem);
+  text-align: center;
+  background: linear-gradient(180deg, #31c3c2, #08a9b4);
+  border: .16rem solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 .12rem .25rem rgb(32 96 97 / 22%);
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .source-song-copy {
+  width: 100%;
+  margin: 0;
+  padding: .48rem .3rem;
+  color: #2d2521;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.18rem, 2.7vw, 1.58rem);
+  line-height: 1.42;
+  text-align: center;
+  background-color: transparent;
+  background-image: radial-gradient(circle, #9f6d65 1px, transparent 1.5px);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: .36rem .18rem;
+  border: 0;
+  border-radius: 0;
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .source-song-copy:last-child {
+  background-image: none;
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .source-structured-lines {
+  padding: 0;
+  background-image: none;
+}
+
+.dynamic-content-page .source-layout .song-book-frame-card .source-structured-lines .source-line {
+  display: block;
+  padding: .48rem .3rem;
+  background-image: radial-gradient(circle, #9f6d65 1px, transparent 1.5px);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: .36rem .18rem;
+}
+
+.song-frame-decoration {
+  position: absolute !important;
+  z-index: 3;
+  width: 25%;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  pointer-events: none;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.song-frame-decoration > img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.song-frame-decoration--top-left {
+  top: .1rem;
+  left: 0;
+}
+
+.song-frame-decoration--top-right {
+  top: .1rem;
+  right: 0;
+}
+
+.song-frame-decoration--bottom-left {
+  bottom: .1rem;
+  left: 0;
+  width: 27%;
+}
+
+.song-frame-decoration--bottom-right {
+  right: 0;
+  bottom: .1rem;
+  width: 28%;
+}
+
+@media (max-width: 44rem) {
+  .dynamic-content-page .source-layout .song-performance-card.song-book-frame-card {
+    padding: 2.7rem .7rem 3rem;
+  }
+
+  .dynamic-content-page .source-layout .song-book-frame-card .song-lyric-panel {
+    padding: 0 .15rem;
+  }
+
+  .dynamic-content-page .source-layout .song-book-frame-card .source-song-heading {
+    padding-right: 2.6rem;
+    padding-left: 2.6rem;
+  }
+
+  .dynamic-content-page .source-layout .song-book-frame-card .source-song-copy,
+  .dynamic-content-page .source-layout .song-book-frame-card .source-structured-lines .source-line {
+    font-size: 1.08rem;
+  }
+
+  .song-frame-decoration {
+    width: 31%;
+  }
+
+  .song-frame-decoration--bottom-left,
+  .song-frame-decoration--bottom-right {
+    width: 33%;
+  }
+}
+
 .matching-answer-title {
   margin: 1rem 0 .45rem;
   color: #173d33;
@@ -594,6 +941,182 @@ span[data-word-index].bg-yellow-300 {
   position: relative;
 }
 
+/* Numbered item collections are grids in the printed book.  Their reviewed
+   reading order is already stored in the HTML, so a source-row marker must not
+   force every picture into a separate full-width row. */
+.dynamic-content-page .source-layout
+  .source-figure.has-picture-number.source-row-start {
+  grid-column-start: auto;
+}
+
+.dynamic-content-page .source-layout .source-figure.has-picture-number > img {
+  width: 100%;
+  height: clamp(10rem, 29vw, 20rem);
+  object-fit: contain;
+}
+
+/* Printed page 4 uses a compact 3-by-2 item grid.  Keeping that grouping on
+   the joined website page prevents the six illustrations from turning into
+   six oversized rows and hiding the Questions and Activity 2 that follow. */
+section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+section[data-section-id="pg022_sec002"] .source-layout[data-source-page="23"],
+section[data-section-id="pg054_sec001"] .source-layout[data-source-page="54"],
+section[data-section-id="pg054_sec001"] .source-layout[data-source-page="55"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"] {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"]
+  #pg030_im002_figure {
+  grid-column: 1 / 3;
+}
+
+section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"]
+  #pg030_im001_figure {
+  grid-column: 3 / 5;
+}
+
+section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"]
+  #pg030_im003_figure {
+  grid-column: 5 / 7;
+}
+
+section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"]
+  :is(#pg030_im005_figure, #pg030_im007_figure) {
+  grid-column: 1 / 4;
+}
+
+section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"]
+  :is(#pg030_im004_figure, #pg030_im006_figure) {
+  grid-column: 4 / 7;
+}
+
+section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"]
+  #pg030_im008_figure {
+  grid-column: 2 / 6;
+}
+
+section[data-section-id="pg050_sec001"] .source-layout[data-source-page="50"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+section[data-section-id="pg050_sec001"] .source-layout[data-source-page="50"]
+  #pg050_im002_figure {
+  grid-column: 1 / -1;
+  width: min(100%, 34rem);
+  justify-self: center;
+}
+
+section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"]
+  .source-figure.has-picture-number {
+  grid-column: auto;
+  min-height: 0;
+  padding: .65rem;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid #8ad2d3;
+  border-radius: .8rem;
+}
+
+section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"]
+  .source-figure.has-picture-number > img {
+  width: 100%;
+  height: clamp(9rem, 18vw, 14rem);
+  object-fit: contain;
+}
+
+/* Activity 2 presents four characters speaking about their uses. */
+.dynamic-content-page .source-layout .source-character-card {
+  display: flex;
+  grid-column: auto;
+  min-width: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .8rem;
+}
+
+.dynamic-content-page .source-layout .source-character-card.source-row-start {
+  grid-column-start: auto;
+}
+
+.dynamic-content-page .source-layout .source-character-card .source-figure {
+  width: 100%;
+  height: clamp(12rem, 30vw, 24rem);
+  min-height: 0;
+}
+
+.dynamic-content-page .source-layout .source-character-card .source-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dynamic-content-page .source-layout .source-character-speech {
+  position: relative;
+  margin-bottom: .35rem;
+  padding: .8rem 1rem;
+  text-align: center;
+  background: #fffde8;
+  border: 3px solid #f07b20;
+  border-radius: 1.35rem;
+}
+
+.dynamic-content-page .source-layout .source-character-speech::after {
+  position: absolute;
+  bottom: -.75rem;
+  left: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  content: "";
+  background: #fffde8;
+  border-right: 3px solid #f07b20;
+  border-bottom: 3px solid #f07b20;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+@media (max-width: 48rem) {
+  section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"],
+  section[data-section-id="pg022_sec002"] .source-layout[data-source-page="23"],
+  section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"],
+  section[data-section-id="pg050_sec001"] .source-layout[data-source-page="50"],
+  section[data-section-id="pg054_sec001"] .source-layout[data-source-page="54"],
+  section[data-section-id="pg054_sec001"] .source-layout[data-source-page="55"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"]
+    :is(#pg030_im002_figure, #pg030_im001_figure, #pg030_im003_figure,
+      #pg030_im005_figure, #pg030_im004_figure, #pg030_im007_figure,
+      #pg030_im006_figure, #pg030_im008_figure) {
+    grid-column: auto;
+  }
+
+  section[data-section-id="pg050_sec001"] .source-layout[data-source-page="50"]
+    #pg050_im002_figure {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 32rem) {
+  section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"] {
+    grid-template-columns: 1fr;
+  }
+
+  section[data-section-id="pg022_sec002"] .source-layout[data-source-page="23"],
+  section[data-section-id="pg029_sec002"] .source-layout[data-source-page="30"],
+  section[data-section-id="pg050_sec001"] .source-layout[data-source-page="50"],
+  section[data-section-id="pg054_sec001"] .source-layout[data-source-page="54"],
+  section[data-section-id="pg054_sec001"] .source-layout[data-source-page="55"] {
+    grid-template-columns: 1fr;
+  }
+}
+
 .dynamic-content-page .source-layout .source-figure.has-visible-caption {
   position: relative;
   display: flex;
@@ -646,16 +1169,67 @@ span[data-word-index].bg-yellow-300 {
 }
 
 .semantic-sequence-group-marker {
+  display: grid;
   grid-column: 1 / -1;
-  width: 100%;
+  width: 3.4rem;
+  height: 3.4rem;
   margin: .35rem 0 0;
-  padding: .55rem .8rem;
-  color: #17494d;
-  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  padding: 0;
+  place-items: center;
+  color: #fff500;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: clamp(1.55rem, 3vw, 1.9rem);
   font-weight: 800;
-  background: #e1f7f5;
-  border-left: .5rem solid #00a6b2;
-  border-radius: .35rem;
+  line-height: 1;
+  background: #08aebb;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 .15rem .3rem rgb(23 73 77 / 20%);
+}
+
+.semantic-procedure-composite {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.65rem, 2vw, 1rem);
+  width: 100%;
+  padding: clamp(.7rem, 2vw, 1rem);
+  background: #f3fbfa;
+  border: 3px solid #00a6b2;
+  border-radius: 1rem;
+  box-shadow: 0 .25rem .7rem rgb(23 73 77 / 12%);
+}
+
+.semantic-procedure-composite > .semantic-sequence-group-marker,
+.semantic-procedure-composite > .semantic-composite-caption {
+  grid-column: 1 / -1;
+}
+
+.semantic-procedure-composite > .semantic-sequence-group-marker {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin: 0;
+  justify-self: start;
+}
+
+.dynamic-content-page .source-layout .semantic-procedure-composite > .semantic-figure-card {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.dynamic-content-page .source-layout .semantic-procedure-composite > .semantic-composite-caption {
+  margin: 0;
+  padding: .65rem .8rem;
+  text-align: center;
+  background: #fffde8;
+  border-radius: .65rem;
+}
+
+@media (max-width: 42rem) {
+  .semantic-procedure-composite {
+    grid-template-columns: 1fr;
+  }
 }
 
 .dynamic-content-page .source-layout .source-decoration {
@@ -793,6 +1367,8 @@ span[data-word-index].bg-yellow-300 {
 .comic-character {
   position: relative;
   z-index: 2;
+  grid-column: 1;
+  grid-row: 1;
   align-self: end;
   margin: 0;
 }
@@ -806,6 +1382,8 @@ span[data-word-index].bg-yellow-300 {
 .comic-speech {
   position: relative;
   z-index: 1;
+  grid-column: 2;
+  grid-row: 1;
   min-height: 7rem;
   margin: 0;
   padding: clamp(1rem, 3vw, 1.55rem);
@@ -847,6 +1425,89 @@ span[data-word-index].bg-yellow-300 {
   display: inline;
 }
 
+/* Exercise 2 presents all six labelled pictures before asking learners to
+   arrange them. The answer controls therefore form a separate grid below the
+   printed instruction instead of being attached above it. */
+.sequence-picture-gallery {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.8rem, 2vw, 1.1rem);
+  width: 100%;
+  margin: .35rem 0 .85rem;
+}
+
+.sequence-picture-card {
+  position: relative;
+  min-width: 0;
+  padding: .7rem;
+  background: #fff;
+  border: 2px solid #57bfc4;
+  border-radius: 1rem;
+  box-shadow: 0 .18rem .5rem rgb(24 67 69 / 12%);
+}
+
+.sequence-picture-card .response-task-figure {
+  width: 100%;
+  height: clamp(15rem, 36vw, 25rem);
+  margin: 0;
+}
+
+.sequence-picture-card .response-task-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sequence-picture-letter {
+  position: absolute;
+  z-index: 2;
+  top: .6rem;
+  left: .6rem;
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  color: #fff;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  place-items: center;
+  background: #08a9b4;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 .12rem .3rem rgb(24 67 69 / 25%);
+}
+
+.response-group.sequence-order-answer-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  margin-top: .45rem;
+}
+
+.sequence-order-answer-grid .sequence-answer-card {
+  display: grid;
+  gap: .45rem;
+  padding: .75rem;
+}
+
+.sequence-answer-label {
+  display: block;
+  color: #173d33;
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-weight: 800;
+}
+
+@media (max-width: 44rem) {
+  .sequence-picture-gallery,
+  .response-group.sequence-order-answer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sequence-picture-card .response-task-figure {
+    height: clamp(14rem, 78vw, 22rem);
+  }
+}
+
 .response-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
@@ -872,6 +1533,35 @@ span[data-word-index].bg-yellow-300 {
 .full-width-text-response > .response-card {
   grid-column: 1 / -1;
   width: 100%;
+}
+
+.aggregate-picture-response,
+.aggregate-picture-response.source-two-column-image-grid {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: none;
+}
+
+.aggregate-picture-grid {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: .85rem;
+  width: 100%;
+}
+
+.aggregate-picture-card {
+  position: relative;
+  min-width: 0;
+}
+
+.aggregate-picture-card .response-task-figure {
+  height: 100%;
+}
+
+.aggregate-answer-card textarea {
+  width: 100%;
+  min-height: 11rem;
 }
 
 /* Preserve the book's paired picture sequence while keeping each digital
@@ -1056,11 +1746,14 @@ span[data-word-index].bg-yellow-300 {
 .page-activity-dock {
   position: fixed;
   z-index: 38;
-  right: .75rem;
+  left: 50%;
+  right: auto;
   bottom: 4.6rem;
+  transform: translateX(-50%);
   display: grid;
-  grid-template-columns: auto auto minmax(12rem, 1fr);
-  width: min(40rem, calc(100% - 1.5rem));
+  grid-template-columns: auto auto;
+  width: fit-content;
+  max-width: calc(100% - 1.5rem);
   margin: 0;
   padding: .4rem;
   align-items: center;
@@ -1095,12 +1788,18 @@ span[data-word-index].bg-yellow-300 {
 }
 
 .page-activity-feedback {
+  grid-column: 1 / -1;
   min-width: 0;
+  max-width: 36rem;
   color: #173d33;
   font-family: "Atkinson Hyperlegible", Arial, sans-serif;
   font-size: .9rem;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.page-activity-feedback:empty {
+  display: none;
 }
 
 .page-activity-dock[data-page-result="correct"] {
@@ -1120,9 +1819,12 @@ span[data-word-index].bg-yellow-300 {
   }
 
   .page-activity-dock {
-    right: .5rem;
+    left: 50%;
+    right: auto;
     bottom: 4.35rem;
-    width: calc(100% - 1rem);
+    transform: translateX(-50%);
+    width: fit-content;
+    max-width: calc(100% - 1rem);
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1219,6 +1921,11 @@ span[data-word-index].bg-yellow-300 {
 }
 
 .matching-group {
+  display: block;
+  width: min(100%, 58rem);
+}
+
+.source-answer-table-group {
   display: block;
   width: min(100%, 58rem);
 }
@@ -1357,6 +2064,33 @@ span[data-word-index].bg-yellow-300 {
   line-height: 1.35;
 }
 
+.source-answer-cell {
+  display: flex;
+  min-width: 0;
+  padding: .75rem;
+  align-items: center;
+  justify-content: center;
+  border-right: 0;
+}
+
+.source-answer-cell input[type="text"],
+.source-answer-cell select {
+  width: min(100%, 18rem);
+  min-height: 3.2rem;
+  padding: .55rem .7rem;
+  color: #111827;
+  font: inherit;
+  background: #fffef5;
+  border: 2px solid #638f81;
+  border-radius: .5rem;
+}
+
+.source-answer-cell input[type="text"]:focus-visible,
+.source-answer-cell select:focus-visible {
+  outline: .22rem solid #0b65c2;
+  outline-offset: .12rem;
+}
+
 .matching-answer-scroll {
   overflow-x: auto;
   width: 100%;
@@ -1402,18 +2136,21 @@ span[data-word-index].bg-yellow-300 {
   font-weight: 700;
 }
 
-.matching-answer-cell select {
+.matching-answer-cell input[data-matching-input] {
   width: 100%;
   min-height: 2.45rem;
   padding: .25rem .35rem;
   color: #111827;
+  font-size: 1.15rem;
+  font-weight: 700;
   text-align: center;
+  text-transform: uppercase;
   background: #fffef5;
   border: 2px solid #638f81;
   border-radius: .4rem;
 }
 
-.matching-answer-cell select:focus-visible {
+.matching-answer-cell input[data-matching-input]:focus-visible {
   outline: .22rem solid #0b65c2;
   outline-offset: .12rem;
 }
@@ -1636,8 +2373,7 @@ span[data-word-index].bg-yellow-300 {
   justify-content: center;
 }
 
-.cover-image,
-.title-page-figure img {
+.cover-image {
   display: block;
   width: min(100%, 43rem);
   height: auto;
@@ -1648,6 +2384,25 @@ span[data-word-index].bg-yellow-300 {
 
 .title-page-figure {
   margin: 0;
+}
+
+.title-page-facsimile {
+  position: relative;
+  width: min(100%, 43rem);
+  aspect-ratio: 1109 / 1575;
+  margin-inline: auto;
+  background: url("../images/title-page.png") center / 100% 100% no-repeat;
+}
+
+.title-page-certificate {
+  position: absolute;
+  top: 30.88%;
+  left: 22.72%;
+  display: block;
+  width: 56.43%;
+  height: 55.13%;
+  margin: 0;
+  object-fit: fill;
 }
 
 .exact-source-page {
@@ -1674,14 +2429,17 @@ span[data-word-index].bg-yellow-300 {
   margin: 0;
 }
 
-.exact-source-page .cover-image,
-.exact-source-page .title-page-figure img {
+.exact-source-page .cover-image {
   width: min(100%, calc((100vh - 6rem) * .7));
   max-width: none;
   height: auto;
   margin: 0 auto;
   border-radius: 0;
   box-shadow: none;
+}
+
+.exact-source-page .title-page-facsimile {
+  width: min(100%, calc((100vh - 6rem) * .7));
 }
 
 @media (max-width: 767px) {
