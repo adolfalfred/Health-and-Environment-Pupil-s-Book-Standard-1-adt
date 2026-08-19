@@ -436,6 +436,7 @@ section[data-section-id="pg006_sec001"] .source-number {
 
 .dynamic-content-page .source-layout .source-instruction,
 .dynamic-content-page .source-layout .source-question-item,
+.dynamic-content-page .source-layout .generated-response-question,
 .dynamic-content-page .source-layout .source-activity-instruction,
 .dynamic-content-page .source-layout .source-exercise-instruction {
   padding: .7rem .85rem;
@@ -449,6 +450,11 @@ section[data-section-id="pg006_sec001"] .source-number {
 }
 
 .dynamic-content-page .source-layout .source-question-item {
+  background: #fffbd2;
+  border-left: .4rem solid #16aab2;
+}
+
+.dynamic-content-page .source-layout .generated-response-question {
   background: #fffbd2;
   border-left: .4rem solid #16aab2;
 }
@@ -836,6 +842,12 @@ section[data-section-id="pg006_sec001"] .source-number {
   .song-frame-decoration--bottom-right {
     width: 33%;
   }
+}
+
+/* The printed dangerous-objects song has a tall lower-right ornament. Reserve
+   its own lower band so it remains decorative without covering lyric text. */
+.dynamic-content-page section[data-section-id="pg054_sec001"] .song-performance-card.song-book-frame-card {
+  padding-bottom: clamp(9rem, 16vw, 12rem);
 }
 
 .matching-answer-title {
@@ -1519,6 +1531,30 @@ section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"]
   background: transparent;
   border: 0;
   border-radius: 0;
+}
+
+.response-group.drawing-two-column-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 64rem);
+}
+
+.response-group.drawing-combined-response {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: none;
+}
+
+.drawing-combined-response > .response-card {
+  width: 100%;
+}
+
+.drawing-combined-response .drawing-canvas {
+  aspect-ratio: 16 / 9;
+}
+
+.drawing-combined-response textarea[data-canvas-alternative] {
+  width: 100%;
+  min-height: 14rem;
 }
 
 /* A lone written answer is a full-row writing area, not one compact grid card. */
@@ -2644,6 +2680,10 @@ section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"]
   .response-group {
     grid-template-columns: 1fr;
     padding: 0;
+  }
+
+  .response-group.drawing-two-column-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .source-two-column-image-grid > .response-card:nth-last-of-type(2):nth-of-type(odd) {

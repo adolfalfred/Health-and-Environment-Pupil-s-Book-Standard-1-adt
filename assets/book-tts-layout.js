@@ -125,7 +125,12 @@
     runtimeMap.innerHTML = runtimeMarkup;
 
     element.replaceChildren(template.content, runtimeMap);
-    var printed = visibleWords(element, runtimeMap);
+    var targetSelector = element.getAttribute("data-tts-highlight-target");
+    var printedElement = targetSelector ? document.querySelector(targetSelector) : element;
+    if (!printedElement) {
+      printedElement = element;
+    }
+    var printed = visibleWords(printedElement, runtimeMap);
     var spoken = runtimeWords(runtimeMap);
     var state = {
       runtimeMap: runtimeMap,
