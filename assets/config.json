@@ -1,12 +1,14 @@
 {
   "title": "Health and Environment Pupil's Book Standard One",
-  "bundleVersion": "13",
+  "bundleVersion": "15",
   "languages": {
-    "available": ["en-GB"],
+    "available": [
+      "en-GB"
+    ],
     "default": "en-GB"
   },
   "features": {
-    "signLanguage": false,
+    "signLanguage": true,
     "easyRead": true,
     "glossary": true,
     "eli5": false,
@@ -40,10 +42,19 @@
     "srcUrl": "https://unisitetracker.unicef.io/matomo.js"
   },
   "defaultSettings": {
-    "dockLayout": {"width": "full", "position": "bottom", "align": "spread"},
+    "dockLayout": {
+      "width": "full",
+      "position": "bottom",
+      "align": "spread"
+    },
     "theme": "dark",
     "iconSize": "md",
     "reduceMotion": false
   },
-  "lockedSettings": ["dockLayout", "theme", "iconSize", "reduceMotion"]
+  "lockedSettings": [
+    "dockLayout",
+    "theme",
+    "iconSize",
+    "reduceMotion"
+  ]
 }
