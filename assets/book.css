@@ -150,8 +150,7 @@ textarea {
   font-weight: 700;
 }
 
-.source-number,
-.source-layout .printed-page-number {
+.source-number {
   font-family: Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -194,19 +193,6 @@ section[data-section-id="pg006_sec001"] .source-number {
   height: 100%;
   max-height: none;
   object-fit: contain;
-}
-
-.source-layout .printed-page-number {
-  position: absolute;
-  z-index: 3;
-  left: 45%;
-  bottom: 1.4%;
-  width: 10%;
-  margin: 0;
-  color: #27211c;
-  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
-  font-size: 2.7cqw;
-  text-align: center;
 }
 
 .dynamic-content-page .source-layout {
@@ -405,16 +391,6 @@ section[data-section-id="pg006_sec001"] .source-number {
   font-style: normal;
   line-height: 1.55;
   text-indent: calc(-1 * clamp(1.6rem, 5vw, 3.8rem));
-}
-
-.reference-page-content .printed-page-number {
-  margin: 2.5rem 0 0;
-  color: #27211c;
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  text-align: center;
 }
 
 @media (max-width: 42rem) {
@@ -1246,14 +1222,6 @@ section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"]
 
 .dynamic-content-page .source-layout .source-decoration {
   display: none;
-}
-
-.dynamic-content-page .source-layout .printed-page-number {
-  position: static;
-  grid-column: 1 / -1;
-  width: auto;
-  margin-top: .75rem;
-  font-size: 1rem;
 }
 
 .dynamic-content-page .source-layout .response-group {
@@ -2617,14 +2585,6 @@ section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"]
 
   .source-layout .source-decoration {
     display: none;
-  }
-
-  .source-layout .printed-page-number {
-    position: static;
-    grid-column: 1 / -1;
-    width: auto;
-    margin-top: .75rem;
-    font-size: 1rem;
   }
 
   .chapter-banner {
