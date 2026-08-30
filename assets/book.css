@@ -386,11 +386,15 @@ section[data-section-id="pg006_sec001"] .source-number {
 .bibliography-entry {
   margin: 0;
   padding-left: clamp(1.6rem, 5vw, 3.8rem);
-  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
   font-size: clamp(1.15rem, 2.7vw, 1.5rem);
   font-style: normal;
   line-height: 1.55;
   text-indent: calc(-1 * clamp(1.6rem, 5vw, 3.8rem));
+}
+
+.reference-bibliography-page .reference-pill-title {
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
 }
 
 @media (max-width: 42rem) {
@@ -407,6 +411,237 @@ section[data-section-id="pg006_sec001"] .source-number {
   .vocabulary-entry dd {
     padding-left: .8rem;
     border-left: .2rem solid #e60083;
+  }
+}
+
+/* Preliminary pages retain the geometry and restrained decoration of the
+   printed book instead of inheriting the dynamic chapter-card layout. */
+.preliminary-source-page .source-layout {
+  isolation: isolate;
+  width: min(100%, 50rem);
+  margin: 0 auto 6rem;
+  overflow: hidden;
+  background: #fff;
+  border: 0;
+  box-shadow: none;
+}
+
+.preliminary-source-page .source-layout::before {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 15%;
+  height: 8.5%;
+  content: "";
+  background: linear-gradient(145deg, #f6a0cc 0 42%, #ed1987 43% 72%, #b8006d 73%);
+  clip-path: polygon(36% 0, 100% 0, 100% 100%, 72% 72%, 48% 100%, 48% 54%, 0 54%);
+}
+
+.preliminary-source-page .source-layout::after {
+  position: absolute;
+  z-index: 0;
+  right: -2%;
+  bottom: -1%;
+  left: -2%;
+  height: 9%;
+  content: "";
+  background:
+    radial-gradient(85% 115% at 20% 112%, #f6bf42 0 48%, transparent 49%),
+    radial-gradient(82% 105% at 74% 112%, #ee3c96 0 50%, transparent 51%),
+    linear-gradient(to top, #f7a9ce 0 23%, transparent 24%);
+  pointer-events: none;
+}
+
+.preliminary-source-page .source-layout .source-h2,
+.preliminary-source-page .source-layout .source-h3,
+.preliminary-source-page .source-layout .source-text {
+  color: #161116;
+  font-weight: 400;
+}
+
+.preliminary-source-page .source-layout .source-number {
+  font-weight: 400;
+}
+
+section[data-section-id="pg006_sec001"] [data-id="pg006_sec001_n0001"] {
+  width: auto;
+  min-width: 25%;
+  padding: .45% 2.5% .75%;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(180deg, #fb55aa, #eb008c 62%, #97005f);
+  border-radius: 1.2rem 1.2rem .65rem .65rem;
+  box-shadow: 0 .35rem 0 #6e0047;
+}
+
+section[data-section-id="pg006_sec001"] [data-id="pg006_sec001_n0007"] {
+  font-weight: 700;
+}
+
+.preliminary-source-page .printed-page-number {
+  position: absolute;
+  z-index: 3;
+  right: 50%;
+  bottom: 2.1%;
+  margin: 0;
+  transform: translateX(50%);
+}
+
+/* Linked contents page: printed-book hierarchy with website page numbers. */
+section[data-section-id="pg003_sec001"] {
+  width: min(100%, 50rem);
+  margin-inline: auto;
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: min(70.7rem, calc(100vw * 1.414));
+  margin: 0 auto 6rem;
+  padding: clamp(4.8rem, 10vw, 6.8rem) clamp(1.5rem, 8vw, 4.2rem) clamp(5rem, 10vw, 7rem);
+  overflow: hidden;
+  background: #fff;
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 15%;
+  height: 8.5%;
+  content: "";
+  background: linear-gradient(145deg, #f6a0cc 0 42%, #ed1987 43% 72%, #b8006d 73%);
+  clip-path: polygon(36% 0, 100% 0, 100% 100%, 72% 72%, 48% 100%, 48% 54%, 0 54%);
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc::after {
+  position: absolute;
+  z-index: -1;
+  right: -2%;
+  bottom: -1%;
+  left: -2%;
+  height: 9%;
+  content: "";
+  background:
+    radial-gradient(85% 115% at 20% 112%, #f6bf42 0 48%, transparent 49%),
+    radial-gradient(82% 105% at 74% 112%, #ee3c96 0 50%, transparent 51%),
+    linear-gradient(to top, #f7a9ce 0 23%, transparent 24%);
+}
+
+section[data-section-id="pg003_sec001"] .toc-heading {
+  margin-bottom: clamp(1.5rem, 4vw, 2.6rem);
+  padding: .55rem clamp(1.8rem, 6vw, 3.8rem) .8rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+section[data-section-id="pg003_sec001"] .toc-instruction {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc ol {
+  gap: clamp(.3rem, 1.2vw, .65rem);
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc a {
+  grid-template-columns: minmax(11rem, auto) minmax(2rem, 1fr) auto;
+  min-height: 3.6rem;
+  padding: .15rem 0;
+  color: #171217;
+  font-size: clamp(1.08rem, 2.5vw, 1.45rem);
+  gap: .65rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+section[data-section-id="pg003_sec001"] .toc-copy {
+  gap: .15rem;
+}
+
+section[data-section-id="pg003_sec001"] .toc-chapter,
+section[data-section-id="pg003_sec001"] .toc-copy:not(:has(.toc-chapter)) .toc-name {
+  width: fit-content;
+  min-width: 10rem;
+  padding: .32rem 1.2rem .45rem;
+  color: #fff;
+  font-family: "Sassoon Primary", "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  background: linear-gradient(90deg, #f13093, #d9007e);
+  border-radius: .75rem .2rem .2rem .75rem;
+  clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);
+}
+
+section[data-section-id="pg003_sec001"] .toc-chapter + .toc-name {
+  padding-left: 1rem;
+  font-weight: 400;
+}
+
+section[data-section-id="pg003_sec001"] .toc-leader {
+  margin-bottom: .75rem;
+  border-bottom: 2px dotted #191219;
+}
+
+section[data-section-id="pg003_sec001"] .toc-page {
+  min-width: 2rem;
+  color: #171217;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+section[data-section-id="pg003_sec001"] .toc-arrow {
+  display: none;
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc a:hover,
+section[data-section-id="pg003_sec001"] .visible-toc a:focus-visible {
+  outline: 3px solid #087f5b;
+  outline-offset: .2rem;
+  box-shadow: none;
+  transform: none;
+}
+
+section[data-section-id="pg003_sec001"] .printed-page-number {
+  position: absolute;
+  right: 50%;
+  bottom: 2.1%;
+  margin: 0;
+  transform: translateX(50%);
+}
+
+@media (max-width: 42rem) {
+  section[data-section-id="pg003_sec001"] .visible-toc {
+    min-height: 54rem;
+    padding-inline: 1rem;
+  }
+
+  section[data-section-id="pg003_sec001"] .visible-toc a {
+    grid-template-columns: minmax(0, auto) minmax(1rem, 1fr) auto;
+    gap: .4rem;
+  }
+
+  section[data-section-id="pg003_sec001"] .toc-leader {
+    display: block;
+  }
+
+  section[data-section-id="pg003_sec001"] .toc-chapter,
+  section[data-section-id="pg003_sec001"] .toc-copy:not(:has(.toc-chapter)) .toc-name {
+    min-width: 8.5rem;
+    padding-inline: .75rem 1rem;
   }
 }
 
@@ -841,6 +1076,18 @@ section[data-section-id="pg006_sec001"] .source-number {
 
 .dynamic-content-page .source-layout .source-text.acknowledgement-editors br {
   display: block;
+}
+
+.dynamic-content-page .source-layout .source-text.acknowledgement-signatory {
+  text-align: left;
+}
+
+.dynamic-content-page .source-layout .source-text.acknowledgement-signatory br {
+  display: block;
+}
+
+.dynamic-content-page .source-layout .source-text.acknowledgement-signatory strong {
+  font-weight: 800;
 }
 
 .dynamic-content-page .source-layout .source-row-start {
@@ -2444,6 +2691,219 @@ section[data-section-id="pg010_sec002"] .source-layout[data-source-page="10"]
 
 .exact-source-page .title-page-facsimile {
   width: min(100%, calc((100vh - 6rem) * .7));
+}
+
+/* Preliminary text pages use the reader's full content width. They retain
+   the printed hierarchy without recreating a paper sheet or page ornaments. */
+:is(
+  section[data-section-id="pg002_sec001"],
+  section[data-section-id="pg003_sec001"],
+  section[data-section-id="pg006_sec001"]
+) {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+section[data-section-id="pg002_sec001"] .source-layout,
+section[data-section-id="pg006_sec001"] .source-layout {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+section[data-section-id="pg002_sec001"] .source-layout {
+  grid-template-columns: minmax(9rem, 17rem) minmax(0, 1fr);
+  column-gap: clamp(1rem, 4vw, 3rem);
+  row-gap: clamp(.65rem, 1.8vw, 1.15rem);
+}
+
+section[data-section-id="pg002_sec001"] .source-layout :is(.source-h2, .source-h3, .source-text),
+section[data-section-id="pg006_sec001"] .source-layout :is(.source-h2, .source-h3, .source-text) {
+  color: #161116;
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  font-weight: 400;
+  overflow-wrap: normal;
+}
+
+section[data-section-id="pg002_sec001"] .source-number {
+  font-family: inherit;
+  font-weight: 400;
+  font-variant-numeric: normal;
+}
+
+section[data-section-id="pg002_sec001"] .source-layout :is(
+  [data-id="pg002_sec001_n0001"],
+  [data-id="pg002_sec001_n0002"],
+  [data-id="pg002_sec001_n0003"],
+  [data-id="pg002_sec001_n0004"],
+  [data-id="pg002_sec001_n0011"]
+) {
+  grid-column: 1 / -1;
+}
+
+section[data-section-id="pg002_sec001"] .source-layout :is(
+  [data-id="pg002_sec001_n0005"],
+  [data-id="pg002_sec001_n0006"],
+  [data-id="pg002_sec001_n0009"]
+) {
+  grid-column: 1;
+}
+
+section[data-section-id="pg002_sec001"] .source-layout :is(
+  [data-id="pg002_sec001_n0008"],
+  [data-id="pg002_sec001_n0007"],
+  [data-id="pg002_sec001_n0010"]
+) {
+  grid-column: 2;
+}
+
+section[data-section-id="pg002_sec001"] .source-layout [data-id="pg002_sec001_n0001"] {
+  margin-bottom: clamp(.75rem, 2vw, 1.5rem);
+}
+
+section[data-section-id="pg002_sec001"] .source-layout [data-id="pg002_sec001_n0004"] {
+  margin-block: clamp(.5rem, 1.5vw, 1rem);
+}
+
+section[data-section-id="pg002_sec001"] .source-layout [data-id="pg002_sec001_n0011"] {
+  max-width: 60rem;
+  margin-top: clamp(.75rem, 2vw, 1.5rem);
+}
+
+section[data-section-id="pg006_sec001"] .source-layout {
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: clamp(.75rem, 2vw, 1.25rem);
+}
+
+section[data-section-id="pg006_sec001"] [data-id="pg006_sec001_n0001"] {
+  justify-self: center;
+  min-width: min(100%, 15rem);
+  margin: 0 auto clamp(.75rem, 2vw, 1.5rem);
+  padding: .55rem 1.8rem .75rem;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+section[data-section-id="pg006_sec001"] #pg006_im001_figure {
+  width: clamp(6rem, 12vw, 9rem);
+  justify-self: start;
+}
+
+section[data-section-id="pg006_sec001"] [data-id="pg006_sec001_n0007"] {
+  width: fit-content;
+  justify-self: end;
+  font-weight: 700;
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc {
+  position: relative;
+  isolation: auto;
+  width: 100%;
+  max-width: 80rem;
+  min-height: 0;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  overflow: visible;
+  background: transparent;
+}
+
+section[data-section-id="pg003_sec001"] .visible-toc::before,
+section[data-section-id="pg003_sec001"] .visible-toc::after,
+section[data-section-id="pg002_sec001"] .source-layout::before,
+section[data-section-id="pg002_sec001"] .source-layout::after,
+section[data-section-id="pg006_sec001"] .source-layout::before,
+section[data-section-id="pg006_sec001"] .source-layout::after {
+  content: none;
+}
+
+:is(
+  section[data-section-id="pg002_sec001"],
+  section[data-section-id="pg003_sec001"],
+  section[data-section-id="pg006_sec001"]
+) .printed-page-number {
+  display: none;
+}
+
+/* On the four item-speech pages, the outlined pointer reaches into the
+   illustration area instead of stopping in the gap above the item. */
+:is(
+  section[data-section-id="pg010_sec002"],
+  section[data-section-id="pg012_sec001"],
+  section[data-section-id="pg022_sec002"],
+  section[data-section-id="pg024_sec001"]
+) .source-character-card {
+  gap: 0;
+}
+
+:is(
+  section[data-section-id="pg010_sec002"],
+  section[data-section-id="pg012_sec001"],
+  section[data-section-id="pg022_sec002"],
+  section[data-section-id="pg024_sec001"]
+) .source-character-speech {
+  z-index: 3;
+  margin-bottom: 0;
+}
+
+:is(
+  section[data-section-id="pg010_sec002"],
+  section[data-section-id="pg012_sec001"],
+  section[data-section-id="pg022_sec002"],
+  section[data-section-id="pg024_sec001"]
+) .source-character-speech::before,
+:is(
+  section[data-section-id="pg010_sec002"],
+  section[data-section-id="pg012_sec001"],
+  section[data-section-id="pg022_sec002"],
+  section[data-section-id="pg024_sec001"]
+) .source-character-speech::after {
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: "";
+  background: transparent;
+  border-right: .9rem solid transparent;
+  border-left: .9rem solid transparent;
+  transform: translateX(-50%);
+}
+
+:is(
+  section[data-section-id="pg010_sec002"],
+  section[data-section-id="pg012_sec001"],
+  section[data-section-id="pg022_sec002"],
+  section[data-section-id="pg024_sec001"]
+) .source-character-speech::before {
+  bottom: -2.2rem;
+  border-top: 2.2rem solid #f07b20;
+}
+
+:is(
+  section[data-section-id="pg010_sec002"],
+  section[data-section-id="pg012_sec001"],
+  section[data-section-id="pg022_sec002"],
+  section[data-section-id="pg024_sec001"]
+) .source-character-speech::after {
+  bottom: -1.88rem;
+  border-right-width: .68rem;
+  border-left-width: .68rem;
+  border-top: 1.88rem solid #fffde8;
+}
+
+@media (max-width: 36rem) {
+  section[data-section-id="pg002_sec001"] .source-layout {
+    grid-template-columns: minmax(7rem, 9rem) minmax(0, 1fr);
+    column-gap: .75rem;
+  }
+
+  section[data-section-id="pg003_sec001"] .visible-toc {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 767px) {

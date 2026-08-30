@@ -246,6 +246,35 @@
         activeRange = rangeForBlock(state);
       }
     });
+    // Recover directly from the runtime word map if a framework update moved
+    // retained nodes without leaving the element in the observer's active set.
+    if (!activeRange) {
+      var liveWord = document.querySelector(
+        "." + RUNTIME_MAP_CLASS + " [data-word-index]." + ACTIVE_WORD_CLASS
+      );
+      if (liveWord) {
+        var liveMap = liveWord.closest("." + RUNTIME_MAP_CLASS);
+        var liveElement = liveMap && liveMap.parentElement;
+        if (liveElement) {
+          var liveTargetSelector = liveElement.getAttribute("data-tts-highlight-target");
+          var livePrintedElement = liveTargetSelector
+            ? document.querySelector(liveTargetSelector)
+            : liveElement;
+          if (livePrintedElement) {
+            var liveState = {
+              runtimeMap: liveMap,
+              printed: visibleWords(livePrintedElement, liveMap)
+            };
+            liveState.aligned = alignWords(runtimeWords(liveMap), liveState.printed);
+            activeElement = liveElement;
+            activeRange = rangeForWord(
+              liveState,
+              Number(liveWord.getAttribute("data-word-index"))
+            );
+          }
+        }
+      }
+    }
     showHighlight(activeElement, activeRange);
   }
 
@@ -276,6 +305,15 @@
       childList: true,
       subtree: true
     });
+
+    // Some reader runtimes update the active word through retained DOM
+    // references without producing a reliable mutation notification after the
+    // printed layout has been restored. A lightweight refresh keeps the
+    // visible yellow Range/overlay synchronized in those browsers too.
+    var highlightRefresh = window.setInterval(queueUpdate, 100);
+    window.addEventListener("pagehide", function () {
+      window.clearInterval(highlightRefresh);
+    }, { once: true });
   }
 
   if (document.readyState === "loading") {
