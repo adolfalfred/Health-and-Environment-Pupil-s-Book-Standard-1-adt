@@ -464,7 +464,7 @@ section[data-section-id="pg006_sec001"] .source-number {
   font-weight: 400;
 }
 
-section[data-section-id="pg006_sec001"] [data-id="pg006_sec001_n0001"] {
+section[data-section-id="pg006_sec001"] .source-layout [data-id="pg006_sec001_n0001"] {
   width: auto;
   min-width: 25%;
   padding: .45% 2.5% .75%;
@@ -2781,11 +2781,12 @@ section[data-section-id="pg006_sec001"] .source-layout {
   row-gap: clamp(.75rem, 2vw, 1.25rem);
 }
 
-section[data-section-id="pg006_sec001"] [data-id="pg006_sec001_n0001"] {
+section[data-section-id="pg006_sec001"] .source-layout [data-id="pg006_sec001_n0001"] {
   justify-self: center;
   min-width: min(100%, 15rem);
   margin: 0 auto clamp(.75rem, 2vw, 1.5rem);
   padding: .55rem 1.8rem .75rem;
+  color: #fff;
   font-size: clamp(1.7rem, 4vw, 2.4rem);
 }
 
