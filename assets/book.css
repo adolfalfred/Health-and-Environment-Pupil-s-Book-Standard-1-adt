@@ -3112,6 +3112,10 @@ section[data-section-id="pg006_sec001"] .source-layout::after {
   }
 }
 
+section[data-section-id="pg048_sec001"] .source-layout [data-id="pg049_sec001_n0003"] {
+  font-weight: 400;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
